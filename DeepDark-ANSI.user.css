@@ -1,0 +1,3957 @@
+/* ==UserStyle==
+@name           DeepDark ANSI
+@namespace      https://github.com/kostek00/DeepDark-ANSI
+@updateURL      https://github.com/kostek00/DeepDark-ANSI/DeepDark-ANSI.user.css
+@version        1.0.0
+@description    Animesub.info forum dark style.
+@author         kostek00
+@license        MIT
+@preprocessor	stylus
+
+@var checkbox _mainEnable "Motyw strony głównej:" 1
+@var color _main_background_color "‣‣ Kolor tła" #101315
+@var text _main_background_image "‣‣ Obraz tła" "none"
+@var text _main_background_size "‣‣ Rozmiar obrazu tła " "cover"
+@var select _main_background_repeat "‣‣ Powtarzaj tło" {
+                                    "yes:Tak": "repeat",
+                                    "no:Nie*": "no-repeat",
+                                    "horizontal:Poziomo": "repeat-x",
+                                    "vertical:Pionowo": "repeat-y" }
+@var checkbox _main_convert_alphabet "‣‣ Zmień katalog alfabetyczny na przyciski" 1
+@var checkbox _main_hide_logo "‣‣ Ukryj baner" 0
+@var checkbox _main_menu_sticky "‣‣ Przyklej menu główne" 0
+@var checkbox _main_animate_checkbox "‣‣ Animacje pól wyboru" 1
+@var color _main_color_accent "‣‣ Kolor głównego akcentu" #8DA8FF
+@var color _main_color_accent_hover "‣‣ Kolor najechania głównego akcentu" #AFC2FF
+@var color _main_color_accent_shadow "‣‣ Kolor cienia głównego akcentu" rgba(101, 81, 255, 0.7)
+@var number _main_color_accent_shadow_strenght "‣‣ Siła rozmycia cienia głównego akcentu" [5, 'px']
+@var color _main_checkbox_color "‣‣ Kolor zaznaczenia pola wielokrotnego wyboru" #8DA8FF
+@var color _main_checkbox_shadow "‣‣ Kolor cienia pola wielokrotnego wyboru" rgba(141, 168, 255, .7)
+@var number _main_checkbox_shadow_strenght "‣‣ Siła rozmycia cienia pola wielokrotnego wyboru" [5, 'px']
+@var color _main_radio_color "‣‣ Kolor zaznaczenia pola pojedynczego wyboru" #8DA8FF
+@var color _main_radio_shadow "‣‣ Kolor cienia pola pojedynczego wyboru" #8DA8FF
+@var number _main_radio_shadow_strenght "‣‣ Siła rozmycia cienia pola pojedynczego wyboru" [3, 'px']
+@var color _main_color_index "‣‣ Kolor indeksu napisów" #FFF000
+@var checkbox _forumEnable "Motyw forum:" 1
+@var color _forum_background_color "‣‣ Kolor tła" #101315
+@var text _forum_background_image "‣‣ Obraz tła" "none"
+@var text _forum_background_size "‣‣ Rozmiar obrazu tła " "cover"
+@var select _forum_background_repeat "‣‣ Powtarzaj tło" {
+                                    "yes:Tak": "repeat",
+                                    "no:Nie*": "no-repeat",
+                                    "horizontal:Poziomo": "repeat-x",
+                                    "vertical:Pionowo": "repeat-y" }
+@var checkbox _forum_hide_google_search "‣‣ Ukryj szukanie z google" 0
+@var checkbox _forum_animate_square "‣‣ Animacja kwadratu nieprzeczytanego tematu" 1
+@var checkbox _forum_animate_checkbox "‣‣ Animacje pól wyboru" 1
+@var checkbox _forum_animate_new_topic "‣‣ Animacja przycisku „Nowy temat” i „Odpowiedz”" 1
+@var color _forum_color_accent "‣‣ Kolor głównego akcentu" #8DA8FF
+@var color _forum_color_accent_hover "‣‣ Kolor najechania głównego akcentu" #AFC2FF
+@var color _forum_color_accent_shadow "‣‣ Kolor cienia głównego akcentu" rgba(101, 81, 255, 0.7)
+@var number _forum_color_accent_shadow_strenght "‣‣ Siła rozmycia cienia głównego akcentu" [5, 'px']
+@var color _forum_color_left_border "‣‣ Kolor lewej ramki bloków" #8DA8FF
+@var color _forum_checkbox_color "‣‣ Kolor zaznaczenia pola wielokrotnego wyboru" #8DA8FF
+@var color _forum_checkbox_shadow "‣‣ Kolor cienia pola wielokrotnego wyboru" rgba(141, 168, 255, .7)
+@var number _forum_checkbox_shadow_strenght "‣‣ Siła rozmycia cienia pola wielokrotnego wyboru" [5, 'px']
+@var color _forum_radio_color "‣‣ Kolor zaznaczenia pola pojedynczego wyboru" #8DA8FF
+@var color _forum_radio_shadow "‣‣ Kolor cienia pola pojedynczego wyboru" #8DA8FF
+@var number _forum_radio_shadow_strenght "‣‣ Siła rozmycia cienia pola pojedynczego wyboru" [3, 'px']
+@var color _forum_color_square1_nr "‣‣ Kwadrat (góra) - kolor nieprzeczytanego tematu" #8DA8FF
+@var color _forum_color_square2_nr "‣‣ Kwadrat (prawa) - kolor nieprzeczytanego tematu" #7B9AFF
+@var color _forum_color_square3_nr "‣‣ Kwadrat (dół) - kolor nieprzeczytanego tematu" #6086FF
+@var color _forum_color_square4_nr "‣‣ Kwadrat (lewa) - kolor nieprzeczytanego tematu" #7B9AFF
+@var color _forum_color_square1_p "‣‣ Kwadrat (góra) - kolor przeczytanego tematu" #E6E6E6
+@var color _forum_color_square2_p "‣‣ Kwadrat (prawa) - kolor przeczytanego tematu" #DEDEDE
+@var color _forum_color_square3_p "‣‣ Kwadrat (dół) - kolor przeczytanego tematu" #DADADA
+@var color _forum_color_square4_p "‣‣ Kwadrat (lewa) - kolor przeczytanego tematu" #E2E2E2
+@var color _forum_color_poll "‣‣ Kolor paska ankiety" #8DA8FF
+@var checkbox _wlEnable "Motyw listy życzeń:" 1
+@var color _wl_background_color "‣‣ Kolor tła" #101315
+@var text _wl_background_image "‣‣ Obraz tła" "none"
+@var text _wl_background_size "‣‣ Rozmiar obrazu tła " "cover"
+@var select _wl_background_repeat "‣‣ Powtarzaj tło" {
+                                    "yes:Tak": "repeat",
+                                    "no:Nie*": "no-repeat",
+                                    "horizontal:Poziomo": "repeat-x",
+                                    "vertical:Pionowo": "repeat-y" }
+@var checkbox _wl_hide_logo "‣‣ Ukryj baner" 0
+@var checkbox _wl_convert_images "‣‣ Zmień ikony obrazkowe na znaki" 0
+@var checkbox _wl_hide_msg "‣‣ Ukryj nieporzebne komunikaty" 0
+@var checkbox _wl_hide_eng_title "‣‣ Ukryj kolumnę angielskiego tytułu" 0
+@var checkbox _wl_hide_alt_title "‣‣ Ukryj kolumnę alternatywnego tytułu" 0
+@var checkbox _wl_animate_checkbox "‣‣ Animacje pól wyboru" 1
+@var color _wl_color_accent "‣‣ Kolor głównego akcentu" #8DA8FF
+@var color _wl_color_accent_hover "‣‣ Kolor najechania głównego akcentu" #AFC2FF
+@var color _wl_color_accent_shadow "‣‣ Kolor cienia głównego akcentu" rgba(101, 81, 255, 0.7)
+@var number _wl_color_accent_shadow_strenght "‣‣ Siła rozmycia cienia głównego akcentu" [5, 'px']
+@var color _wl_checkbox_color "‣‣ Kolor zaznaczenia pola wielokrotnego wyboru" #8DA8FF
+@var color _wl_checkbox_shadow "‣‣ Kolor cienia pola wielokrotnego wyboru" rgba(141, 168, 255, .7)
+@var number _wl_checkbox_shadow_strenght "‣‣ Siła rozmycia cienia pola wielokrotnego wyboru" [5, 'px']
+@var color _wl_radio_color "‣‣ Kolor zaznaczenia pola pojedynczego wyboru" #8DA8FF
+@var color _wl_radio_shadow "‣‣ Kolor cienia pola pojedynczego wyboru" #8DA8FF
+@var number _wl_radio_shadow_strenght "‣‣ Siła rozmycia cienia pola pojedynczego wyboru" [3, 'px']
+@var checkbox _author_footer "Stopka autorska" 1
+==/UserStyle== */
+
+@-moz-document regexp("(https|http)://animesub.info/(?!.*forum).*") {
+	if _mainEnable {
+		* { filter: none } /* Removes filters from browsers */
+		*:focus-visible { outline: dashed 1px _main_color_accent }
+
+		if _main_hide_logo {
+			.BelkaTL {
+				display: none !important;
+			}
+		}
+        
+        body center table.TabMain tbody tr td table tbody tr td center {
+            font-size: 20px;
+        }
+
+        if _main_convert_alphabet {
+            body center table.TabMain tbody tr td table tbody tr td center > a {
+                filter: none;
+                cursor: pointer;
+                background-color: #212427;
+                border: #000 1px solid;
+                font-size: 40px;
+                padding: 0px;
+                line-height: 64px;
+                width: 64px;
+                height: 64px;
+                display: inline-block;
+                margin: 1.5px -2px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+            }
+
+            body center table.TabMain tbody tr td table tbody tr td center > a:hover {
+                filter: none;
+                background-color: #212427;
+                background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+                text-decoration: none;
+            }
+
+            body center table.TabMain tbody tr td table tbody tr td center br:nth-of-type(n+3) {
+                display: none;
+            }
+        }
+        
+		body center,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td,
+		body center table.TabMain tbody tr td table tbody tr td,
+		body div.StLink table.KoPK {
+			color: #cccccc;
+		}
+		
+		body center .RedNick {
+			color: _main_color_accent;
+			text-shadow: 0 0 _main_color_accent_shadow_strenght _main_color_accent_shadow;
+		}
+
+		body center {
+			background-color: _main_background_color;
+			background-image: url(_main_background_image) !important;
+			background-size: _main_background_size;
+            background-repeat: _main_background_repeat;
+		}
+
+		body[topmargin="0"],
+		body[topmargin="0"] center {
+			background: #252a2e;
+		}
+
+		body[topmargin="0"] a,
+		body[topmargin="0"] center a,
+		body table.TabMG tbody tr td a.LinkMG,
+		body center table.TabMain a:link,
+		body center table.TabMain a:visited,
+		body center table.TabMain tbody tr td table tbody tr td div.KatWlkLtr,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td.MaleLtr a {
+			color: _main_color_accent !important;
+			text-shadow: 0 0 _main_color_accent_shadow_strenght _main_color_accent_shadow !important;
+			text-decoration: none !important;
+		}
+
+		body center table.TabMain a:link small,
+		body center table.TabMain a:visited small {
+			color: #dcdcdc !important;
+		}
+
+		body table.TabMG tbody tr td a.LinkMG:hover,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td.MaleLtr a:hover {
+			color: _main_color_accent_hover !important;
+		}
+
+		body[topmargin="0"] a:hover,
+		body[topmargin="0"] center a:hover,
+		body center table.TabMain a:hover {
+			color: _main_color_accent_hover !important;
+			text-decoration: underline;
+		}
+
+        .BelkaTL {
+			border-bottom: 1px solid #000;
+        }
+            
+		body table.TabMG {
+			background-image: linear-gradient(to bottom, #333333, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+			border-bottom: 1px solid #000;
+            z-index: 999;
+		}
+		
+		if _main_menu_sticky {
+			body table.TabMG {
+				position: sticky;
+				position: -webkit-sticky;
+                top: 0;
+			}
+		}
+
+		body table.TabMG tbody tr td {
+			height: 40px;
+			color: #696969;
+		}
+
+		body table.TabMG tbody tr td a.LinkMG {
+			font-size: 12px;
+		}
+
+		body table.TabMG tbody tr td.TabBodr {
+			height: 0;
+		}
+
+		body center table.TabMain {
+			padding: 20px;
+			border: 1px solid #000;
+			background: #252a2e;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		body center table.TabMain tbody tr td.TabBodr,
+		body center table.TabMain tbody tr td[width="1"] {
+			width: 0;
+			height: 0;
+		}
+
+		body center table.TabMain tbody tr td table {
+			background-color: #252a2e;
+			border: 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td.MBW a.MBNN:hover,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td a.MBNN:hover,
+		body center table.TabMain tbody tr td table tbody tr td a.MBNN:hover {
+			background-color: rgba(0, 0, 0, 0) !important;
+			text-decoration: underline !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td.MBW a.MBNN{
+			position: relative;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.daySubtitles a.MBNN sup.latest-subtitles-index-update {
+			color: _main_color_index;
+			vertical-align: top;
+			position: relative;
+			top: -3px;
+		}
+
+		body center table.TabMain tbody tr td table[width="770"] {
+			width: 980px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td > [width="180"],
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr > [width="189"] {
+			width: 220px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN {
+			border: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			height: 35px;
+			background: #1a1c1f;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			border-bottom: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			margin-bottom: -10px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN tbody tr td,
+		html body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			color: #fff;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN tbody,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 255), rgba(0, 0, 0, 255) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 5px);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			align-content: left !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table tbody tr.KNap td img[title="przeczytano"],
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table tbody tr.KNap td img[title="nie przeczytano"],
+		body center table.TabMain tbody tr td table tbody tr td:nth-of-type(3) table:nth-of-type(2) tbody tr td[width="25%"] a img[border="0"],
+		body center table.TabMain tbody tr td table tbody tr td div table tbody tr td a img,
+		body div.StLink table.KoLG tbody tr td a img,
+		body div.StLink table.KoLG:nth-of-type(3) tbody tr td br:first-of-type,
+		body div.StLink table.KoLG:nth-of-type(3) tbody tr td br:last-of-type,
+		body div.StLink table.KoLG:nth-of-type(3) tbody tr td:first-of-type,
+		body div.StLink table.KoLG:nth-of-type(3) tbody tr td:last-of-type,
+		body div.StLink table.KoPK:not([width="96%"]) tbody tr td br,
+		body center table.KoLG tbody tr td br:nth-of-type(3),
+		body center table.KoLG tbody tr td br:last-of-type,
+		body center table.KoLG tbody tr td[width="10"],
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr td a img,
+		body center table.TabMain tbody tr td table tbody tr td table.MBN tbody tr td img {
+			display: none;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN tbody tr td[width="24"] {
+			width: 10px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr [height="1"] {
+			height: 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBW {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			background: #212528;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBW tbody tr td.MBW,
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol:nth-of-type(even),
+		body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr:not(.NewNag):nth-of-type(2n) td,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNap {
+			background: #212528;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td.DownPlkInf {
+			background: #252a2e;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW) tbody tr td.MBW {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			background: #212528;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+			padding: 7px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW) tbody tr:nth-child(4n) td.MBW {
+			background: #1a1c20;
+		}
+
+        body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr.ArchKol:hover td,
+        body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol:hover:nth-of-type(2n) td,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW):nth-child(2) tbody tr td.MBW:hover,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW):nth-child(6) tbody tr td.MBW:hover {
+			background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .07));
+		}
+
+        body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr:hover:not(.NewNag):not(.ArchKol) td,
+        body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol:hover td,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW):nth-child(2) tbody tr:nth-child(4n) td.MBW:hover,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.MBW):nth-child(6) tbody tr:nth-child(4n) td.MBW:hover {
+			background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .09));
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MBN:not(:first-of-type) {
+			margin-top: 8px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div div.daySubtitles {
+			border: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div div.daySubtitles {
+			position: relative;
+			padding-left: 7px;
+			padding-right: 7px;
+			padding-bottom: 7px;
+			padding-top: 29px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewData {
+			position: absolute;
+			top: 0px;
+			left: 0;
+			text-align: center;
+			padding: 9px 0;
+			height: 17px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td:nth-of-type(3) table:nth-of-type(2) tbody tr td[width="25%"] a {
+			border-top: 1px solid;
+			border-bottom: 1px solid;
+			border-image: linear-gradient(to right, #252a2e, _main_color_accent, #252a2e);
+			border-image-slice: 1;
+			padding: 7px 0;
+			text-decoration: none !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td table:not(.ArchKol) {
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+			border: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td table:not(.ArchKol) tbody tr td:last-of-type {
+			padding: 6px 6px 6px 3px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td table:not(.ArchKol) tbody tr td.BelNaGl {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+			background-image: linear-gradient(to bottom, #7383b6, #34416a);
+			background-color: #7383b6;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table[cellspacing="4"] tbody tr td div.GlMaleLtr {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			border-top: 1px solid #000;
+			background-color: #212528;
+			padding: 12px;
+			margin-top: -16px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form:not([name="wyszukiwarka"]) table[width="90%"] tbody tr.KNap:nth-of-type(9) td {
+			height: 25px;
+			background: #252a2e;
+			box-shadow: initial;
+			border: 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form:not([name="wyszukiwarka"]) table[width="90%"] tbody tr.KNap:nth-of-type(10) td textarea {
+			margin: 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form:not([name="wyszukiwarka"]) table[width="90%"] tbody tr td.KNag {
+			background-color: rgba(0, 0, 0, 0);
+			background-image: linear-gradient(to bottom, #282b2f, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			border: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form:not([name="wyszukiwarka"]) table[width="90%"] tbody tr.KNap td.MaleLtr {
+			border: 0;
+			box-shadow: initial;
+			background: #252a2e;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNag td,
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNap td {
+			border: 1px solid #000;
+			background: #212528;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNap:nth-of-type(2n) td {
+			border: 1px solid #000;
+			background: #1a1c20;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNag td input[name="user"] {
+			width: 68%;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNag td input:not([type="checkbox"]):not([type="radio"]):not([name="user"]):not([value="Moderator"]):not([value="Admin"]),
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNap td input:not([type="checkbox"]):not([type="radio"]):not([name="user"]):not([value="Moderator"]):not([value="Admin"]) {
+			width: 100% !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form[name="dodaj"] table tbody tr td input {
+			width: 90% !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.NewNag {
+			background: none;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not([cellspacing="0"]) tbody tr td div:last-child {
+			margin-top: initial;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not([cellspacing="0"]) tbody tr td div:last-child a {
+			border: initial;
+			background: initial;
+			padding: initial;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div[align="right"] {
+			margin-top: -16px;
+			padding: 6px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.GlMaleLtr + br + div[align="right"] a,
+		html body center table.TabMain tbody tr td table tbody tr td table tbody tr td table.ArchKol {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			background-color: #212528;
+			padding: 6px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td hr,
+		body center table.TabMain tbody tr td table tbody tr td hr {
+			color: #000 !important;
+		}
+
+		hr {
+			color:#626262;
+			margin-bottom:0.25em;
+			background-color:#000;
+			border-width: 0;
+			height: 2px;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td div.DownPlkInf,
+		body center table.TabMain tbody tr td table tbody tr td table[cellspacing="3"] tbody tr.KNap td {
+			background: #1a1c20;
+			border: 1px solid #000;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+			margin-bottom: -10px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td[align="right"] div input[type="submit"] {
+			float: right;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center {
+			background: none;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center table tbody tr td div.RedTresc a {
+			background: none;
+			border: 0;
+			padding: initial;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr td table.KNap tbody tr td {
+			text-align: left;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.KNap tbody tr td {
+			text-align: center;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form table tbody tr td.KNag table {
+			border-spacing: 0px !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form table {
+			border-spacing: 2px !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy,
+		body center table.TabMain tbody tr td table tbody tr td form table,
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table,
+		body center table.TabMain tbody tr td table tbody tr td form[name="send"] table {
+			border-spacing: 2px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table,
+		body center table.TabMain tbody tr td table tbody tr td *:not(form) table:not(.Napisy) {
+			border-spacing: 0;
+		}
+
+        body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag[height="24"]:nth-of-type(1) td,
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag:not([height="24"]) {
+			background-image: linear-gradient(to bottom, #282b2f, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag td {
+			border-top: 1px solid #000;
+			border-right: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag td:first-of-type {
+			border-left: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol {
+			background: #1a1c20;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol td {
+			border-top: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol td:first-of-type {
+			border-left: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol td:last-of-type {
+			border-right: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table tbody tr.ArchKol:last-of-type td {
+			border-bottom: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form[name="wyszukiwarka"] table tbody tr td.KNag {
+			background: #1c1c1c;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form > table > tbody > tr > td.KNag {
+			border: 1px solid #171717;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form[name="wyszukiwarka"] table tbody tr td.KNag table {
+			border-width: 0;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0), inset 0 1px 1px rgba(255, 255, 255, 0);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form[name="wyszukiwarka"] table tbody tr td:not(.KNag) {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form[name="wyszukiwarka"] table tbody tr {
+			background-color: #414141;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td center form[name="wyszukiwarka"] table tbody tr:nth-of-type(2n) {
+			background-color: #333333;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy tbody tr.KNag td,
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy tbody tr td.KNag {
+			background-color: #3d4246;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy tbody tr.KNap td,
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy tbody tr.KKom td.KNap {
+			background-color: #353a3e;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.Napisy tbody tr.KNap td table {
+			border: 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td div table tbody tr td:nth-of-type(2) a:not(.StrWKat)::before {
+			content: "⮜";
+			font-size: 18px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td div table tbody tr td:last-of-type a:not(.StrWKat)::before {
+			content: "⮞";
+			font-size: 18px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td div table tbody tr td a:hover:not(.StrWKat) {
+			text-decoration: none !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNap td img[src="pics/mr1.gif"],
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNap td img[title="nie przeczytano"] {
+			background: none;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table tbody tr.KNap td img[title="przeczytano"] + a::before,
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table tbody tr.KNap td img[title="nie przeczytano"] + a::before {
+			margin-left: -2px;
+			margin-right: 6px;
+			content: "✉";
+			font-size: 16px;
+			line-height: 14px;
+			color: #fff;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] table tbody tr.KNap td img[title="nie przeczytano"] + a::before {
+			color: _main_color_accent;
+			text-shadow: 0 0 5px rgba(101, 81, 255, 1) !important;
+		}
+
+		body div.StLink table.KoLG[width="100%"] {
+			background: #1a1c1f;
+			background-image: repeating-linear-gradient(-45deg, rgba(0, 0, 0, 255), rgba(0, 0, 0, 255) 1px, rgba(0, 0, 0, 0) 1px, rgba(0, 0, 0, 0) 5px);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			position: relative;
+		}
+
+		body div.StLink table.KoLG[width="100%"] tbody tr td a::after {
+			content: "×";
+			line-height: 10px;
+			color: #fff;
+			float: right;
+			background: #7383b6;
+			padding: 5px;
+			border-radius: 100%;
+			position: absolute;
+			top: 120%;
+			right: 1%;
+			box-shadow: 0 0 5px rgba(101, 81, 255, 0.4);
+		}
+
+		body div.StLink table.KoLG[width="100%"] tbody tr td a:hover::after {
+			background: #afc2ff;
+			color: #000;
+		}
+
+		body div.StLink table.KoLG tbody tr td[bgcolor="#FFD323"] {
+			background-color: #7383b6;
+		}
+
+		body div.StLink table.KoLG:nth-of-type(3) {
+			background: #1a1c1f;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			border-bottom: 1px solid #000;
+			padding: 8px;
+		}
+
+		body div.StLink table[width="500"] {
+			border: 1px solid #000;
+			background: #212528;
+		}
+
+		body div.StLink table.KoLG[width="96%"] {
+			background: #1a1c1f;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			border: 1px solid #000;
+			padding: 6px;
+		}
+
+		body div.StLink table.KoPK {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom: 1px solid #000;
+			background-color: #212528;
+		}
+
+		body div.StLink table.KoPK[width="96%"] {
+			padding: 0 12px;
+		}
+
+		body div.StLink table.KoPK:not([width="96%"]) {
+			padding: 12px;
+		}
+
+		body div.StLink table[width="95%"] tbody tr td.KoLG {
+			background-color: #1a1c1f;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			border-bottom: 1px solid #000;
+			padding: 6px;
+		}
+
+		body div.StLink table[width="95%"] {
+			border: 1px solid #000;
+		}
+
+		body div.StLink table[width="95%"] tbody tr td.DownPlkInf {
+			background-color: #212528;
+		}
+
+		body center table.KoLG {
+			width: 95%;
+			margin-top: 10px;
+			color: #cccccc;
+			background: #212528;
+			border: 1px solid #000;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			padding: 10px;
+			position: relative;
+			min-width: 550px;
+		}
+
+		body center table.KoLG tbody tr td table.KoLG tbody tr td[bgcolor="#FFD323"] {
+			background: #7383b6;
+			border: 0;
+		}
+
+		body center table.KoLG tbody tr td table.KoLG {
+			border: 0;
+			margin-bottom: 10px;
+			padding: 0;
+		}
+
+		body center table.KoLG tbody tr td div[align="right"] {
+			margin-top: -37px;
+		}
+
+		body div.StLink table[width="95%"] tbody tr td.KoLG {
+			background-color: #1a1c1f;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .2);
+			border-bottom: 1px solid #000;
+			padding: 6px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form:not([name="Wiadomosc"]) table tbody tr td:not(.KNag) a::after {
+			content: "ⓘ";
+			font-size: 18px;
+			line-height: 10px;
+			text-decoration: none !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form:not([name="Wiadomosc"]) table tbody tr td:not(.KNag) a {
+			text-decoration: none !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MaleLtr {
+			border: 1px solid #000;
+			border-spacing: 0;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr.NewNag {
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr:not(.NewNag) td {
+			border-top: 1px solid #000;
+			border-left: 0;
+			border-right: 0;
+			border-bottom: 0;
+			background: #151619;
+			vertical-align: middle;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr:not(.NewNag) td:not(:last-child) {
+			border-right: 1px solid #000;
+        }
+
+		body center table.TabMain tbody tr td table tbody tr td form table tbody tr.KNag {
+			box-shadow: initial !important;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag[height="24"]:nth-of-type(1) td,
+		body center table.TabMain tbody tr td table tbody tr td center form:not([name="wyszukiwarka"]) table tbody tr td.KNag {
+			border-bottom: 1px solid #000;
+			box-shadow: inset 0 1px 1px rgba(255, 255, 255, .2);
+			padding: 10px 10px 10px 0;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNap td:nth-of-type(1) {
+			border-left: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNap:nth-of-type(2) td {
+			box-shadow: inset 0 1px 1px rgba(255, 255, 255, .1);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody:not(.Napisy) tr.KNap td:nth-of-type(2) {
+			border-right: 1px solid #000;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNap td.GlMaleLtr {
+			padding-right: 5px;
+		}
+
+		body center table.TabMain tbody tr td table[width="100%"] tbody tr td.ArchKol {
+			padding: 10px;
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr td.ArchKol {
+			border: 1px solid #000;
+			background: #1a1c20;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .3), inset 0 1px 1px rgba(255, 255, 255, .1);
+		}
+
+		body center table.TabMain tbody tr td table tbody tr td form[name="Wiadomosc"] {
+			margin-top: 10px;
+		}
+
+		body div.StLink textarea,
+		body center table.TabMain textarea,
+		body center table.TabMain input[type="text"],
+		body center table.TabMain input[type="password"],
+		body center table.TabMain input[type="file"],
+		body center table.TabMain input[type="button"],
+		body center table.KoLG tbody tr td form textarea {
+			filter: none;
+			color: #848484;
+			padding: 5px;
+			outline: none;
+			border: 1px solid #000 !important;
+			background: #13161a;
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		body div.StLink textarea:focus,
+		body center table.TabMain textarea:focus,
+		body center table.TabMain input[type="text"]:focus,
+		body center table.TabMain input[type="password"]:focus,
+		body center table.TabMain input[type="file"]:focus,
+		body center table.KoLG tbody tr td form textarea:focus {
+			color: #797979;
+			outline: none;
+			background: rgba(0, 0, 0, .8) !important;
+		}
+
+		body div.StLink textarea,
+		body center table.TabMain textarea,
+		body center table.KoLG tbody tr td form textarea {
+			padding: 8px;
+			margin-bottom: 8px;
+		}
+
+		body center table.TabMain input[type="text"],
+		body center table.TabMain input[type="password"] {
+			padding: 4px;
+		}
+
+		body center table.TabMain input[type="file"] {
+			padding: 2px;
+		}
+		
+		body div.StLink input[type="submit"],
+		body center table.TabMain input[type="submit"],
+		body center table.TabMain input[type="button"],
+		body center table.KoLG [type="submit"],
+		body center table.KoLG [type="button"],
+		body center table.TabMain input::file-selector-button {
+			filter: none;
+			cursor: pointer;
+			color: _main_color_accent;
+			font-size: 11px;
+			font-weight: bold;
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 6px 18px;
+			text-shadow: 0 0 _main_color_accent_shadow_strenght _main_color_accent_shadow;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		body center table.TabMain input[name="tytul"] {
+			margin-top: 5px;
+			width: 350px !important;
+		}
+
+		body div.StLink input[type="submit"]:hover,
+		body center table.TabMain input[type="submit"]:hover,
+		body center table.TabMain input[type="button"]:hover,
+		body center table.KoLG [type="submit"]:hover,
+		body center table.KoLG [type="button"]:hover,
+		body center table.TabMain input::file-selector-button:hover {
+			color: _main_color_accent_hover;
+			text-decoration: none;
+			text-shadow: 0 0 _main_color_accent_shadow_strenght _main_color_accent_shadow;
+			background: #212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		body center table.TabMain input[name="szukane"] {
+			line-height: 17px;
+		}
+
+		body center table.TabMain input[name="szukane"]:focus {
+			width: 350px !important;
+		}
+
+		body center table.TabMain select {
+			background-color: #181b1e;
+			border: #000 1px solid;
+			color: #b7b7b7;
+			padding: 7px 10px;	
+		}
+
+		body center table.TabMain select optgroup {
+			background-color: #181b1e;
+			border: #000 0px solid;
+			color: #b7b7b7;
+		}
+
+		body center table.TabMain select optgroup option {
+			background-color: #181b1e;
+			border: #000 0px solid;
+			color: #b7b7b7;
+		}
+		
+		body div.StLink input[type=checkbox],
+		body div.StLink input[type=radio],
+		body center input[type=checkbox],
+		body center input[type=radio] {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			-o-appearance: none;
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+			border: 1px solid #000;
+			background-color: #212427;
+		}
+
+		body center input[type=checkbox],
+		body center input[type=radio] {
+			vertical-align: middle;
+		}
+		
+		body div.StLink input[type=checkbox],
+		body div.StLink input[type=radio] {
+			vertical-align: bottom;
+		}
+
+		body div.StLink input[type=checkbox],
+		body center input[type=checkbox] {
+			width: 17px !important;
+			height: 17px !important;
+		}
+
+		body div.StLink input[type=radio],
+		body center input[type=radio] {
+			border-radius: 50%;
+			width: 19px !important;
+			height: 19px !important;
+		}
+
+		body center .multidelete input[type=checkbox] {
+			border: none;
+			background-color: transparent !important;
+			background-image: none !important;
+			box-shadow: none;
+			top: 3px;
+		}
+
+		body div.StLink input[type=checkbox]:hover,
+		body div.StLink input[type=radio]:hover,
+		body center input[type=checkbox]:hover,
+		body center input[type=radio]:hover {
+			background-color:#212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		body div.StLink input[type=checkbox]:before,
+		body center input[type=checkbox]:before {
+			content: "\2713";
+			color: _main_checkbox_color;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 10px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 2px;
+			right: 0;
+			text-shadow: 0 0 _main_checkbox_shadow_strenght _main_checkbox_shadow;
+		}
+
+		body div.StLink input[type=radio]:before,
+		body center input[type=radio]:before {
+			content: "";
+			width: 9px;
+			height: 9px;
+			position: absolute;
+			top: 4px;
+			bottom: 0;
+			left: 4px;
+			right: 0;
+			border-radius: 50%;
+			background-color: _main_radio_color;
+			box-shadow: 0 0 _main_radio_shadow_strenght _main_radio_shadow;
+		}
+
+		body div.StLink input[type=checkbox]:before,
+		body div.StLink input[type=radio]:before,
+		body center input[type=checkbox]:before,
+		body center input[type=radio]:before {
+			transform: scale(0);
+		}
+
+		body div.StLink input[type=checkbox]:checked:before,
+		body div.StLink input[type=radio]:checked:before,
+		body center input[type=checkbox]:checked:before,
+		body center input[type=radio]:checked:before {
+			transform: scale(1);
+		}
+
+		body div.StLink input[type=checkbox]:focus,
+		body div.StLink input[type=radio]:focus,
+		body center input[type=checkbox]:focus,
+		body center input[type=radio]:focus {
+			outline: none;
+		}
+
+		body div.StLink input[type=checkbox]:disabled,
+		body div.StLink input[type=checkbox]:disabled:hover,
+		body div.StLink input[type=radio]:disabled,
+		body div.StLink input[type=radio]:disabled:hover,
+		body center input[type=checkbox]:disabled,
+		body center input[type=checkbox]:disabled:hover,
+		body center input[type=radio]:disabled,
+		body center input[type=radio]:disabled:hover,
+		body center select:disabled,
+		body center select:disabled:hover {
+			cursor: not-allowed;
+			background-color: #33383b;
+			border-color: #000;
+			background-image: none;
+		}
+
+		body div.StLink select,
+		body center select {
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 5px 9px;
+			outline: none;
+			position: relative;
+			cursor: pointer;
+		}
+
+		body div.StLink select:hover,
+		body center select:hover {
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		body div.StLink optgroup[label],
+		body center optgroup[label] {
+			color: #b7b7b7;
+			font-style: normal;
+		}
+
+		body center .multiselect, body center .checklist, body div.StLink .multiselect, body div.StLink .checklist {
+			color: #b7b7b7;
+		}
+
+		body center select, body center option, body div.StLink select, body div.StLink option {
+			color: #b7b7b7;
+		}
+
+		body center optgroup[label], body center option, body div.StLink optgroup[label], body div.StLink option {
+			background-color: #212427;
+		}
+
+		body center optgroup[label]:checked, body center option:hover, body div.StLink optgroup[label]:checked, body div.StLink option:hover {
+			background-color: #212427;
+		}
+
+		/* Shadows and animations
+		----------------------------------------------------------------*/
+
+		body center input[type=text],
+		body center input[type=password],
+		body center textarea {
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		body center input[type=text]:focus,
+		body center input[type=password]:focus,
+		body center textarea:focus {
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		body center input[type=text],
+		body center input[type=password],
+		body center textarea {
+			-webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+		}
+
+		body center select,
+		body center input[type=checkbox],
+		body center input[type=radio],
+		body div.StLink input[type=checkbox],
+		body div.StLink input[type=radio],
+		body div.StLink input[type="submit"],
+		body center table.TabMain input[type="submit"],
+		body center table.TabMain input[type="button"],
+		body center table.KoLG [type="submit"],
+		body center table.KoLG [type="button"],
+		body center table.TabMain tbody tr td table tbody tr td center form > table > tbody > tr > td.KNag,
+        body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr:not(.NewNag) td,
+        body center table.TabMain tbody tr td table tbody tr td table.MaleLtr tbody tr.NewNag,
+        body center table.TabMain tbody tr td table tbody tr td table:not(.Napisy) tbody tr.KNag[height="24"]:nth-of-type(1) td {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15) !important;
+		}
+
+		body div.StLink textarea,
+		body div.StLink input[type="submit"],
+		body center table.TabMain textarea,
+		body center table.TabMain input[type="text"],
+		body center table.TabMain input[type="password"],
+		body center table.TabMain input[type="submit"],
+		body center table.TabMain input[type="button"],
+		body center table.KoLG tbody tr td form textarea,
+		body center table.KoLG [type="submit"],
+		body center table.KoLG [type="button"] {
+			-webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+		}
+
+		body center table.TabMain input[name="szukane"] {
+			width: 190px;
+			-webkit-transition: width 0.5s ease-in-out, border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-moz-transition: width 0.5s ease-in-out, border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-o-transition: width 0.5s ease-in-out, border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			-ms-transition: width 0.5s ease-in-out, border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+			transition: width 0.5s ease-in-out, border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+		}
+
+		body center input[type=checkbox]:before, body div.StLink input[type=checkbox]:before {
+			transform-origin: 18% 90%;
+		}
+
+		body center input[type=radio]:before, body div.StLink input[type=radio]:before {
+			transform-origin: 50%;
+		}
+
+		if _main_animate_checkbox {
+			body div.StLink input[type=checkbox]:before,
+			body div.StLink input[type=radio]:before,
+			body center input[type=checkbox]:before,
+			body center input[type=radio]:before {
+				transition: 60ms transform linear;
+			}
+		}
+
+		if _author_footer {
+			body center div.Stka:after {
+				content: "| Motyw stworzony przez kostek00";
+				padding-left: 5px;
+			}
+		}
+	}
+}
+
+@-moz-document regexp("(https|http)://animesub.info/forum(.*?)") {
+	if _forumEnable {
+		/* Poll */
+		.pun .poll { margin-top:2em; padding-bottom:1em; background-color:#2A2A2A;	border:1px solid #857b63; }
+		.poll legend { font-weight:normal; }
+		.poll p { font-weight:bold; }
+		.pun .poll ol {	list-style:none outside none; padding:0px; }
+		.pun .poll ol label { padding:0px; background-color:#1c1c1c; border:0 none; }
+		.pun .poll li {	padding:0; margin-bottom:0.5em; }
+		.pun .poll label { padding:0px; }
+		.poll .percent { font-size:0.8em; margin-left:10px; }
+		.poll .progressbar {
+			height:15px;
+			border: 1px solid #000;
+			background: rgb(13, 15, 17);
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+			width:60%;
+		}
+
+		.poll .progressbar span {
+			background-color: _forum_color_poll;
+			width:100%; height:15px;
+			display:block;
+			font-size:0;
+			overflow:hidden;
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		.poll .progressbar span span { display:none; }
+		.poll .total { color:#b7b7b7; margin-top:0.5em; font-style:italic; }
+		.poll .poss { color:#b7b7b7; font-style:italic; }
+		.pun .poll_mess { font-weight:bold; text-align:center; }
+		.pun .pollbut { font-size:0.8em; padding:7px 0 0 30px; }
+		.pun .pollbut input { margin-right:12px; }
+
+		/* Growl messages */
+		#growlcontainer { position:fixed; right:20px; top:20px; width:500px; font-size:12px; z-index:1000; }
+		#growlcontainer p { font-family:Arial,sans-serif; margin:0; }
+		.growlstatus {
+			position:relative;
+			color:#b7b7b7;
+			min-height:48px; /* icon height */
+			padding:10px;
+			margin-bottom:5px;
+			background-color:#212528;
+			border:1px solid #000;
+			opacity:0.8;
+			-moz-border-radius:10px;
+			-webkit-border-radius:10px;
+		}
+
+		.growlstatus:hover { border-color:#000; opacity:0.9; }
+		.growlstatusclose { visibility:hidden; float:right; width:16px; height:16px; cursor:pointer; margin:0 0 3px 5px; }
+		.growlstatus:hover .growlstatusclose { display:block; visibility:visible; }
+		.growlwithicon { padding-left:68px; background-position:10px 10px; background-repeat:no-repeat; }
+
+		/* Spoiler_tag */
+		.spoiler_wrap {
+			padding:5px 10px !important;
+			border-style: solid !important;
+			border-width: 1px 1px 1px 3px !important;
+			border-radius: 11px 0 0 11px;
+			background:#181b1e;
+		}
+
+		.spoiler_head { cursor:pointer; color:_forum_color_accent; font-weight:bold; }
+		.spoiler_head span { font-weight:normal; }
+		.spoiler_text { padding-bottom:5px !important; padding-top:5px !important; display:none; color:#b7b7b7; cursor:auto; }
+
+		/* Emoticons */
+		#post .txtarea textarea { line-height:1.4em; /* x20 */}
+		#smilies_box { width:23%; float:right; margin-top:34px; text-align:justify; overflow-x:hidden; overflow-y:auto; }
+		#smilies_box ul { font-size:12px; height:28em; }
+		#smilies_box li { display:inline; cursor:pointer; }
+
+		.modlist { display:none; }
+
+		input[type=text],
+		input[type=password],
+		textarea {
+			filter: none;
+			color: #848484;
+			padding: 5px;
+			outline: none;
+			border: 1px solid #000;
+			background: rgb(13, 15, 17);
+		}
+
+		input[type=text]:focus,
+		input[type=password]:focus,
+		textarea:focus {
+			color: #797979;
+			outline: none;
+			background: rgba(0, 0, 0, .7);
+		}
+
+		.pun input[type=submit],
+		.pun input[type=button],
+		.pun input[type=file],
+		.pun .multidelete label,
+		.pun form button {
+			filter: none;
+			cursor: pointer;
+			color: _forum_color_accent;
+			font-size: 11px;
+			font-weight: bold;
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 6px 18px;
+		}
+
+		.pun input[type=submit]:hover, 
+		.pun input[type=button]:hover,
+		.pun input[type=file]:hover,
+		.pun .multidelete label:hover,
+		.pun form button:hover {
+			filter: none;
+			color: _forum_color_accent_hover;
+			background-color: #212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		.pun input[type=checkbox],
+		.pun input[type=radio] {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			-o-appearance: none;
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+			border: 1px solid #000;
+			background-color: #212427;
+			vertical-align: text-bottom;
+		}
+
+		.pun input[type=checkbox] {
+			width: 17px !important;
+			height: 17px !important;
+		}
+
+		.pun input[type=radio] {
+			border-radius: 50%;
+			width: 19px !important;
+			height: 19px !important;
+		}
+
+		.pun .multidelete input[type=checkbox] {
+			border: none;
+			background-color: transparent !important;
+			background-image: none !important;
+			box-shadow: none;
+			top: 3px;
+		}
+
+		.pun input[type=checkbox]:hover, .pun input[type=radio]:hover {
+			background-color:#212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		.pun input[type=checkbox]:before {
+			content: "\2713";
+			color: _forum_checkbox_color;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 10px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 2px;
+			right: 0;
+			text-shadow: 0 0 _forum_checkbox_shadow_strenght _forum_checkbox_shadow;
+		}
+
+		.pun input[type=radio]:before {
+			content: "";
+			width: 9px;
+			height: 9px;
+			position: absolute;
+			top: 4px;
+			bottom: 0;
+			left: 4px;
+			right: 0;
+			border-radius: 50%;
+			background-color: _forum_radio_color;
+			box-shadow: 0 0 _forum_radio_shadow_strenght _forum_radio_shadow;
+		}
+
+		.pun input[type=checkbox]:before,
+		.pun input[type=radio]:before {
+			transform: scale(0);
+		}
+
+		.pun input[type=checkbox]:checked:before,
+		.pun input[type=radio]:checked:before {
+			transform: scale(1);
+		}
+
+		.pun input[type=checkbox]:focus,
+		.pun input[type=radio]:focus {
+			outline: none;
+		}
+
+		.pun input[type=checkbox]:disabled,
+		.pun input[type=checkbox]:disabled:hover,
+		.pun input[type=radio]:disabled,
+		.pun input[type=radio]:disabled:hover,
+		.pun select:disabled,
+		.pun select:disabled:hover {
+			cursor: not-allowed;
+			background-color: #33383b;
+			border-color: #000;
+			background-image: none;
+		}
+
+		.pun select {
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 5px 9px;
+			outline: none;
+			position: relative;
+			min-width: 150px;
+			cursor: pointer;
+		}
+
+		.pun select:hover {
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		.pun optgroup[label] {
+			color: #b7b7b7;
+			font-style: normal;
+		}
+
+		.pun .multiselect, .pun .checklist {
+			color: #b7b7b7;
+		}
+
+		.pun select, .pun option {
+			color: #b7b7b7;
+		}
+
+		.pun optgroup[label], .pun option {
+			background-color: #212427;
+		}
+
+		.pun optgroup[label]:checked, .pun option:hover {
+			background-color: #212427;
+		}
+
+		.pun .postheadline { font-size:11px; }
+		.pun .postheadline a { color:_forum_color_accent; }
+		.blockpost .username img { vertical-align:middle; }
+		.blockpost .usertitle strong { font-weight:normal; }
+
+		body > .pun { min-width:960px; max-width:1200px; margin:12px auto; }
+		.pun span.bbs { text-decoration:line-through; }
+		.pun .postmsg { font:normal 12px/1.75em verdana,arial,sans-serif; }
+		.pun .postsignature p { max-height:7.5em; line-height:1.5em; padding:0; overflow:hidden; }
+
+		.pun .postleft .email a,
+		.pun .postleft .website a,
+		.pun .postleft .pw a { display:inline-block; width:16px; height:16px; margin-right:0.5em; background-position:0 0; background-repeat:no-repeat; }
+
+		#search_google { margin-bottom:1.5em; padding: 0 5px 5px; }
+
+		#ansifoot { font-size:1em; padding:3px 0; }
+
+		/*****************************************************************
+		1. INITIAL SETTINGS
+		*****************************************************************/
+
+		/* Limited Reset
+		----------------------------------------------------------------*/
+
+		.pun table, .pun div, .pun form, .pun p, .pun h1, .pun h2, .pun h3,
+		.pun h4, .pun h5, .pun pre, .pun blockquote, .pun ul, .pun ol, .pun li, .pun dl,
+		.pun dt, .pun dd, .pun th, .pun td, .pun fieldset, .pun img, .pun abbr, .pun cite {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			}
+
+		.pun ul, .pun ol {
+			list-style: none
+			}
+
+
+		/* Structural Settings
+		----------------------------------------------------------------*/
+
+		.pun .clearer, .pun .nosize {
+			height: 0;
+			width: 0;
+			line-height: 0;
+			font-size: 0;
+			overflow: hidden
+			}
+
+		.pun .clearer, .pun .clearb {
+			clear: both
+			}
+
+		.pun .nosize {
+			position: absolute;
+			left: -9999em;
+			text-indent: -9999em;
+			width: 0;
+			}
+
+		* html .inbox, * html .inform, * html .pun, * html .tclcon, * html .codebox {
+			height: 1px
+			}
+
+		.pun, .pun .inbox, .pun .inform, .pun .tclcon, .pun .codebox {
+			min-height: 1px
+			}
+
+		.clearl {
+			clear: left;
+			}
+
+		/* Hidden Elements
+		----------------------------------------------------------------*/
+
+		#brdfooter h2, #brdstats h2, #brdstats .conl dt, #brdstats .conr dt,
+		#modcontrols dt, #searchlinks dt, div.postright h3,
+		.pun .required strong span {
+			position: absolute;
+			display: block;
+			overflow: hidden;
+			width: 0;
+			left: -9999em;
+			text-indent: -9999em;
+		}
+
+		/*****************************************************************
+		2. TEXT & CONTENT
+		*****************************************************************/
+
+		/* Text Defaults
+		----------------------------------------------------------------*/
+
+		.pun {
+			font: 68.75%/1.4545em Verdana, Helvetica, Arial, sans-serif;
+			}
+
+		.pun table, .pun td, .pun th, .pun input, .pun select, .pun optgroup, .pun textarea, .pun small, .pun samp, .pun legend {
+			font-size: 12px;
+			font-family: verdana, helvetica, arial, sans-serif;
+		}
+
+		.pun pre, .pun code {
+			font-size: 1.182em;
+			font-family: consolas, monaco, "bitstream vera sans mono", "courier new", courier, monospace
+			}
+
+		.pun pre code {
+			font-size: 1em;
+			}
+
+		.pun strong {
+			font-weight: bold;
+			}
+
+		.pun em {
+			font-style: italic;
+			}
+
+		.pun ins {
+			color:#000; 
+		}
+
+		/* Content Defaults
+		----------------------------------------------------------------*/
+
+		.pun p, .pun ul, .pun ol, .pun dl {
+			font-size: 1em;
+			padding: 3px 0;
+			}
+
+		.pun h2 { font-size:12px; padding:8px 10px; }
+
+		.pun .blocktable h2 {
+			color:#b7b7b7;
+			font-weight:bold;
+			background-color:#16171a;
+			border: #000 1px solid;
+			padding: 8px 13px;
+		}
+
+		.pun div[id^=idx] > h2 {
+			cursor:pointer;
+		}
+
+		.pun h3 {
+			font-size: 1.091em;
+			padding: 3px 0;
+			}
+
+		.pun table p, .pun table h3 {
+			padding: 0;
+			}
+
+		.pun span.warntext, .pun p.warntext {
+			font-weight: bold
+			}
+
+
+		/* User Content (Announcements, Rules, Posts)
+		----------------------------------------------------------------*/
+
+		.pun .usercontent p, .pun .postmsg p {
+			padding: 0.75em 0
+		}
+
+		.pun .usercontent ul, .pun .postmsg ul {
+			padding: 0.75em 1em 0.75em 2.5em;
+			list-style: disc
+			}
+
+		.pun .usercontent ol, .pun .postmsg ol {
+			padding: 0.75em 1em 0.75em 2.5em;
+			list-style: decimal
+			}
+
+		.pun .usercontent ol.alpha, .pun .postmsg ol.alpha {
+			list-style: lower-alpha
+			}
+
+		.pun .usercontent li ol, .pun .usercontent li ul, .pun .postmsg li ol, .pun .postmsg li ul {
+			padding: 0.25em 1em 0.75em 2.5em
+			}
+
+		.pun .usercontent li p, .pun .postmsg li p {
+			padding: 0
+			}
+
+		.pun .usercontent h1 {
+			font-size: 1.4em;
+			font-weight: bold;
+			padding: 0.75em 0 0 0
+			}
+
+		.pun .usercontent h2 {
+			font-size: 1.2em;
+			font-weight: bold;
+			padding: 0.75em 0 0 0
+			}
+
+		.pun .usercontent h3 {
+			font-size: 1.1em;
+			font-weight: bold;
+			padding: 0.75em 0 0 0
+			}
+
+		.pun .usercontent h4, .pun .usercontent h5, .pun .usercontent h6 {
+			font-size: 1em;
+			font-weight: bold;
+			padding: 0.75em 0 0 0
+			}
+
+		.pun .quotebox cite {
+			font-weight: bold;
+			font-style: normal;
+			padding: 0.75em 0.75em 0 0.75em
+			}
+
+		.pun span.bbu {	text-decoration:underline }
+		.pun span.bbs { text-decoration:line-through; }
+
+		.pun span.bbs, .pun del {
+			text-decoration: line-through;
+			}
+		.pun del { color:#b7b7b7; }
+
+		.pun .postmsg ins, #punhelp samp ins {
+			text-decoration: none;
+			}
+
+		.pun div.postmsg h5, #punhelp h5 {
+			font-size: 1.1em;
+			font-weight: bold;
+			padding: 0.75em 0 0 0;
+			}
+
+
+		/*****************************************************************
+		3. COMMON STYLES
+		*****************************************************************/
+
+		/* Page Layout
+		----------------------------------------------------------------*/
+
+		html, body {
+			margin: 0;
+			padding: 0
+			}
+
+		.pun {
+			margin: 12px 20px
+			}
+
+		#punredirect, #punmaint, #puninstall, #pundb_update {
+			margin: 50px 20% 12px 20%
+			}
+
+
+		/* Vertical Element Spacing
+		----------------------------------------------------------------*/
+
+		#brdheader {
+			margin: 0 0 24px 0;
+			}
+
+		#announce, #brdstats { margin:1em 0 2em; }
+		#announce-block { border:1px solid #666; }
+
+		.pun .blocktable, .pun .block, .pun .blockform, .pun .block2col, #postreview {
+			margin-bottom: 12px
+			}
+
+		#punindex .blocktable {
+			margin-bottom: 20px
+		}
+
+		.pun .blockpost {
+			margin-bottom: 8px
+			}
+
+		#postreview .blockpost {
+			margin-bottom: -1px;
+			}
+
+		.pun .block2col .blockform, .pun .block2col .block {
+			margin-bottom: 0px
+			}
+
+		.pun .linkst, .pun .linksb {
+			margin-top: -12px
+			}
+
+		.pun .postlinksb {
+			margin-top: -6px
+			}
+
+		.pun #brdfooter {
+			margin-bottom: 0px;
+		}
+
+		/* External Borders
+		----------------------------------------------------------------*/
+
+		.pun .box {
+			border-style: solid;
+			border-width: 1px;
+			}
+
+		.pun .blocktable .box {
+			border-width:0px;
+		}
+
+		#brdheader .box, #brdstats .box, #brdfooter .box { border: 1px solid #000; }
+
+		#brdheader .box #brdmenu {
+			border-width:1px 0 1px 0;
+			border-color:#000;
+			border-style:solid;
+		}
+
+		/* Default Internal Spacing
+		----------------------------------------------------------------*/
+
+		.pun .block .inbox, .pun .blockmenu .inbox {
+			padding:2px 6px 3px;
+		}
+
+		/*****************************************************************
+		4. COMMON BOARD ELEMENTS
+		*****************************************************************/
+
+		/* Board Header
+		----------------------------------------------------------------*/
+
+		#brdtitle {
+			padding: 13px 17px;
+			}
+
+		#brdtitle h1 {
+			font-size: 1.454em;
+			font-weight: bold;
+			line-height: 1em;
+			}
+
+		#brddesc {
+			padding: 5px 0px 0px 0px;
+			}
+
+
+		#brdmenu li {
+			display: inline;
+			margin-right: 12px;
+			}
+
+		#brdmenu a:link, #brdmenu a:visited {
+			text-decoration: none;
+			}
+
+		#brdmenu a:hover, #brdmenu a:active {
+			text-decoration: underline;
+			}
+
+		#brdwelcome .conl {
+			float: left;
+			}
+
+		#brdwelcome .conr {
+			float: right;
+			text-align: right;
+			}
+
+		#brdmenu, #brdwelcome {
+			padding: 5px 17px;
+		}
+        
+        if _forum_hide_google_search {
+            #brdmenu li#navextra1 {
+                display: none !important;
+            }
+        }
+
+		/* Breadcrumbs and Post Links
+		----------------------------------------------------------------*/
+
+		.pun .linkst {
+			padding: 8px 6px 3px 6px
+			}
+
+		.pun .linksb, .pun .postlinksb {
+			padding: 3px 6px 8px 6px
+			}
+
+		.pun .crumbs {
+			clear: both;
+			width: 100%;
+			overflow: hidden;
+			}
+
+		.pun .crumbs li {
+			display: inline;
+			white-space: nowrap;
+			font-weight: bold;
+			}
+
+		.pun .pagelink {
+			float: left;
+			white-space: nowrap;
+			}
+
+		.pun .postlink {
+			font-weight: bold;
+			white-space: nowrap;
+			}
+
+		.pun .postlink, .pun .modbuttons {
+			float: right;
+			text-align: right;
+			}
+
+		.pun .modbuttons {
+			padding: 1px 0;
+			white-space: nowrap;
+			}
+
+		.pun .modbuttons input {
+			margin-left: 6px;
+			}
+
+		.pun .postlink a {
+			display: inline-block;
+			padding: 4px 22px 4px 40px;
+			background: #212427;
+			color: _forum_color_accent;
+			line-height: 23px;
+			text-decoration: none;
+			position: relative;
+			border: #000 1px solid;
+			
+		}
+
+		.pun .postlink a:before {
+			content: "\2b9e";
+			font-size: 26px;
+			position: absolute;
+			left: 9px;
+			top: 3px;
+			background: none !important;
+		}
+
+		.pun .postlink a:hover {
+			text-decoration: none;
+			color: _forum_color_accent_hover;
+			background: #212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		#punindex .subscribelink {
+			margin-top: 6px;
+			}
+
+		/* Board Footer
+		----------------------------------------------------------------*/
+
+		#brdfooter .conl {
+			float: left;
+			}
+
+		#brdfooter .conr {
+			float: right;
+			text-align: right;
+			}
+
+		#brdfooter #modcontrols {
+			border-bottom-style: solid;
+			border-bottom-width: 1px;
+			text-align: center;
+			}
+
+		#brdfooter #modcontrols dd {
+			display: inline;
+			margin:0 6px;
+			}
+
+
+		/* Board Stats
+		----------------------------------------------------------------*/
+
+		#brdstats .conl {
+			float: left;
+			}
+
+		#brdstats .conr {
+			float: right;
+			text-align: right;
+			}
+
+		#onlinelist dd, #onlinelist dt {
+			display: inline;
+			}
+
+
+		/*****************************************************************
+		5. MAIN TABLES
+		*****************************************************************/
+
+		.pun table {
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+			empty-cells: show;
+			}
+
+		.pun .blocktable table {
+			table-layout: fixed;
+			}
+
+		.pun td, .pun th {
+			line-height: 1.273em;
+			text-align: left;
+			font-weight: normal;
+			}
+
+		.pun td {
+			padding: 6px 9px;
+			}
+
+		.pun #vf td {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		.pun th {
+			padding: 7px 9px;
+		}
+
+		.pun td, .pun tbody .tcl, .pun tbody .tc2, .pun tbody .tc3, .pun tbody .tcr, .pun tbody .tcmod, .pun .box td[class*="tc"] {
+			border: 1px solid #000;
+			}
+
+		.pun .tcl { width:auto; }
+		.pun tr.topic > td { padding:8px 6px; }
+
+		.pun .tc2, .pun .tc3, .pun .tcmod {
+			width: 10%;
+			text-align: center;
+			padding: 4px 0;
+			}
+
+		.pun .tcr {
+			width: 30%;
+			}
+
+		.pun .tcl h3 { font-size:13px; font-weight: bold; margin-bottom:0.25em; }
+		.pun .tcl h3 a { color:_forum_color_accent; }
+		.pun .tcl h3 a:hover { color:_forum_color_accent_hover; }
+
+		.pun .tcl h3 span.newtext {
+			font-size: 0.917em;
+			}
+
+		.pun .tcl span.newtext, .pun .tcl span.pagestext {
+			white-space: nowrap;
+			font-weight: normal;
+			}
+
+		.pun .closedtext,
+		.pun .stickytext { float:left; width:16px; height:16px; text-indent:16px; margin-right:0.5em; overflow:hidden; background-repeat:no-repeat; background-position:50% 50%; }
+		.pun .postlink .closedtext {padding:7px 0px}
+		.pun .isticky .tclcon a { font-weight:bold; }
+
+		.pun td span.byuser {
+			white-space: nowrap;
+		}
+
+		.pun .tcl p {
+			padding: 5px 0 0 0
+			}
+
+		#punsearch #vf .tc2 {
+			width: 18%;
+			text-align: left;
+			padding: 4px 6px;
+			}
+
+		#users1 .tcr {
+			width: 25%
+			}
+
+		#users1 .tc2 {
+			width: 25%;
+			text-align: left;
+			padding: 4px 6px;
+			}
+
+		#debug .tcl {
+			width: 10%
+			}
+
+		#debug .tcr {
+			width: 90%;
+			white-space: normal
+			}
+
+		#punindex .tcr .byuser {
+			display: block
+			}
+
+		.pun .blocktable .tclcon {
+			padding: 0 11px 0 12px;
+			overflow: hidden;
+			height: 1%;
+			min-height: 1px;
+			position: relative;
+			}
+
+		.pun .blocktable .tclcon div { width:100%; font-size:11px; color:#b7b7b7; overflow:hidden; }
+
+		.pun .icon {
+			border-width: 7px;
+			border-style: solid;
+			height: 0;
+			width: 0;
+			overflow: hidden;
+			float: left;
+			margin-top:3px;
+		}
+
+		.pun .icon div {
+			position: absolute;
+			left: -9999em;
+			text-indent: -9999em;
+			height: 0;
+			}
+
+		.pun .iposted .ipost {
+			position: absolute;
+			left: 0;
+			font-weight: bold;
+			width: 8px;
+			padding-left: 4px;
+			text-align: center;
+			top: 0;
+			}
+
+		/*****************************************************************
+		6. MAIN FORMS
+		*****************************************************************/
+
+		.pun .blockform form, .pun .fakeform {
+			padding: 20px 20px 15px 20px;
+			}
+
+		.pun .forminfo {
+			margin-bottom: 12px;
+			padding: 9px 10px;
+			border-style: solid;
+			border-width: 1px;
+			}
+
+		.pun .forminfo h3 {
+			font-weight: bold;
+			}
+
+		.pun .inform {
+			padding-bottom: 12px
+			}
+
+		.pun fieldset {
+			padding:0 12px;
+			border-style: solid;
+			border-width: 1px
+		}
+
+		.pun .box fieldset {
+			background-color:#181b1e;
+			border-color: #000;
+		}
+
+		.pun .checklist fieldset {
+			box-shadow: none;
+		}
+
+		.pun legend {
+			padding: 0px 6px
+			}
+
+		.pun .infldset {
+			padding: 9px 0px 12px 0
+			}
+
+		.pun label {
+			display: block;
+			padding: 3px 0
+			}
+
+		.pun label.conl {
+			float: left;
+			overflow: visible;
+			margin-right: 10px
+			}
+
+		.pun fieldset .rbox br {
+			display: none;
+			}
+
+		.pun fieldset .rbox label {
+			padding: 3px 0 3px 25px;
+			position: relative;
+			vertical-align: middle;
+			}
+
+		.pun fieldset .rbox input {
+			margin: 0 9px 0 -25px;
+			padding: 0;
+			width: 16px;
+			position: relative;
+			vertical-align: middle;
+			}
+
+		.pun .txtarea {
+			width: 75%
+			}
+
+		.pun .txtarea textarea, .pun input.longinput {
+			width: 100%
+			}
+
+		.pun .bblinks {
+			padding-bottom: 10px;
+			padding-left: 4px
+			}
+
+		.pun .bblinks li {
+			display: inline;
+			padding-right: 20px
+			}
+
+		.pun .blockform .buttons {
+			padding-left: 12px;
+			}
+
+		.pun .blockform .buttons input {
+			margin-right: 8px;
+			}
+
+		#posterror ul {
+			list-style: square;
+			padding: 3px 0 3px 24px;
+			}
+
+		.pun .deletemsg {
+			border-style: solid;
+			border-width: 1px;
+			padding: 6px 15px;
+			}
+
+		.pun p.actions span {
+			margin-right: 12px;
+			}
+
+		.pun .multiselect {
+			float: left;
+			padding-bottom: 7px;
+			}
+
+		.pun .checklist {
+			border-width: 1px;
+			border-style: solid;
+			max-height: 250px;
+			max-width: 300px;
+			overflow: auto;
+			padding: 0.3em 0.5em;
+			margin: 0.25em 16px 0 0.15em;
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+			}
+
+		.pun .checklist fieldset {
+			border-width: 1px;
+			border-style: solid;
+			margin-bottom: 5px;
+			}
+
+		.pun .checklist legend {
+			padding: 0;
+			}
+
+		.pun .checklist legend span {
+			width: auto;
+			max-width: 25em;
+			padding: 0 1px;
+			}
+
+		.pun .checklist .checklist-item {
+			position: relative;
+			margin: .4em 0;
+			}
+
+		.pun .checklist .checklist-item label {
+			padding: 0 0 0 2.1em;
+			}
+
+		.pun .checklist .checklist-item .fld-input {
+			position: absolute;
+			left: 0;
+			top: 0;
+			padding: 0;
+			margin: 0;
+			}
+
+		.pun .checklist .checklist-item input {
+			margin: 0;
+			height: 1.15em;
+			width: 1.55em;
+			}
+
+		/*****************************************************************
+		7. PROFILES AND ADMIN
+		*****************************************************************/
+
+		.pun .block2col {
+			padding-bottom: 1px
+			}
+
+		.pun .block2col .blockform, .pun .block2col .block {
+			margin-left: 17em
+			}
+
+		.pun .blockmenu {
+			float:left;
+			width: 16em
+			}
+
+		.pun .blockmenu li {
+			padding: 3px 0;
+			font-weight: bold;
+			}
+
+		.pun .blockmenu a:link, .pun .blockmenu a:visited {
+			text-decoration: none
+			}
+
+		.pun .blockmenu a:hover, .pun .blockmenu a:active {
+			text-decoration: underline
+			}
+
+		#viewprofile dl {
+			float: left;
+			width: 100%;
+			overflow: hidden
+			}
+
+		#viewprofile dd {
+			margin-left: 14em;
+			padding: 3px;
+			}
+
+		#viewprofile dt {
+			float: left;
+			width: 13em;
+			margin: 3px 0;
+			}
+
+		#profileavatar img {
+			float: right;
+			margin-left: 1em
+			}
+
+		#adintro ul {
+			list-style-type: disc;
+			margin-left: 8px;
+			padding-left: 16px;
+			}
+
+		/*****************************************************************
+		8. MAIN POSTS
+		*****************************************************************/
+
+		.pun .blockpost h2 a:link, .pun .blockpost h2 a:visited {
+			text-decoration: none;
+			}
+
+		.pun .blockpost h2 a:hover, .pun .blockpost h2 a:active {
+			text-decoration: underline;
+			}
+
+		.pun .blockpost h2 .conr {
+			float: right;
+			text-align: right;
+			}
+
+		.pun .blockpost h2 {
+			border-width:1px 1px 0 1px;
+			border-style:solid;
+		}
+
+		#punsearch .blockpost h2 span {
+			white-space: nowrap;
+			}
+
+		.pun .blockpost .box {
+			overflow: hidden;
+			}
+
+		.pun .postleft, .pun .postfootleft {
+			float:left;
+			width: 18em;
+			position: relative;
+			overflow: hidden;
+			}
+
+		.pun .postleft dl {
+			padding: 0.75em 6px;
+			}
+
+		.pun .postleft .usercontacts, .pun .postleft .icon {
+			margin-top: 6px
+			}
+
+		.pun .postleft .postavatar, .pun .postleft .usertitle {
+			margin-bottom: 6px;
+			display: block;
+			}
+
+		.pun .blockpost dt {
+			font-size: 1.091em;
+			font-weight: bold;
+			}
+
+		.pun .blockpost dt a:link, .pun .blockpost dt a:visited {
+			text-decoration: none;
+			}
+
+		.pun .blockpost dt a:hover, .pun .blockpost dt a:active {
+			text-decoration: underline;
+			}
+
+		.pun .postright, .pun .postfootright {
+			border-left-width: 18em;
+			border-left-style: solid
+			}
+
+		#postpreview .postright {
+			border-left: 0
+			}
+
+		.pun .postright {
+			padding: 0 6px;
+			}
+
+		.pun .postfootright, .pun .multidelete {
+			text-align: right
+			}
+
+		.pun .postmsg {
+			width:98%;
+			overflow: hidden;
+			padding-bottom: 6px;
+			word-wrap: break-word;
+			}
+
+		.pun .postfootright ul, .pun .postfootright div, .pun .postfootright p,
+		.pun .postfootleft p {
+			padding: 6px 6px 6px 6px;
+			}
+
+		.pun .postfootright li {
+			display: inline;
+			}
+
+		.pun .postfootright li:before {
+			content: " | ";
+			}
+
+		.pun .postfootright li:first-child:before {
+			content: "";
+			}
+
+		.pun .postfootright a:link, .pun .postfootright a:visited {
+			text-decoration: none
+			}
+
+		.pun .postfootright a:hover, .pun .postfootright a:active {
+			text-decoration: underline
+			}
+
+		.pun .codebox {
+			border-style: solid;
+			border-right-width: 1px;
+			border-top-width: 1px;
+			border-bottom-width: 1px;
+			border-left-width: 3px;
+			border-radius: 11px 0 0 11px;
+			margin:0.75em 1em 0;
+			padding: 0;
+			}
+
+		.pun .quotebox {
+			border-style: solid;
+			border-right-width: 1px;
+			border-top-width: 1px;
+			border-bottom-width: 1px;
+			border-left-width: 3px;
+			border-radius: 11px 0 0 11px;
+			margin: 0.75em 1em;
+			padding: 0 0.75em;
+			}
+
+		.pun .quotebox cite {
+			display: block;
+			padding: 0.75em 0 0 0;
+			}
+
+		.pun .quotebox blockquote {
+			width: 100%;
+			overflow: hidden
+			}
+
+		.pun .codebox pre {
+			overflow: auto;
+			width: 100%;
+			overflow-y:hidden
+			}
+
+		* html .pun .codebox pre {
+			padding-bottom: 10px;
+			}
+
+		*+html .pun .codebox pre {
+			padding-bottom: 10px
+			}
+
+		.pun .codebox pre code {
+			display: block;
+			padding: 0.75em;
+			}
+
+		.pun .codebox pre.vscroll {
+			height: 32em;
+			overflow: auto;
+			overflow-y: auto
+			}
+
+		.pun .postmsg img {
+			vertical-align: bottom;
+			}
+
+		.pun .postsignature hr {
+			margin-left:0;
+			width:50%;
+			text-align:left;
+			height:2px;
+			border:none
+		}
+
+		.pun .postsignature p { padding:0; line-height:1.5em; max-height:7.5em; overflow:hidden; }
+
+		.pun .postmsg .postimg img {
+			max-width: 98%;
+			vertical-align: middle;
+			margin: 7px 0.5em 7px 0;
+		}
+
+		.pun .postmsg .postimg a:link img, .pun .postmsg .postimg a:visited img {
+			border-style: solid;
+			border-width: 2px;
+		}
+
+		.pun .blockpost label {
+			padding: 3px 6px;
+			border-style: solid;
+			border-width: 1px;
+			vertical-align: middle;
+			display: inline-block;
+			}
+
+		.pun .blockpost label * {
+			vertical-align: middle;
+			margin: 0;
+			padding: 0;
+			}
+
+		/****************************************************************/
+		/* 9. HELP FILES AND MISC. */
+		/****************************************************************/
+
+		#punhelp h2 {
+			margin-top: 12px
+			}
+
+		#punhelp div.box {
+			padding: 10px
+			}
+
+		#debugtime {
+			margin-top: -12px;
+			text-align: center;
+			}
+
+		#brdwelcome, #brdfooter dl a, div.blockmenu li, div.rbox input {
+			line-height: 1.4em
+			}
+
+		#announce div.inbox div {
+			padding: 3px 0
+			}
+
+		/*****************************************************************
+		COLOUR SCHEME
+		*****************************************************************/
+
+		/* Background / Text
+		----------------------------------------------------------------*/
+
+		body {
+			color:#b7b7b7;
+			background-color: _forum_background_color;
+			background-image: url(_forum_background_image) !important;
+			background-size: _forum_background_size;
+            background-repeat: _forum_background_repeat;
+		}
+
+		.pun {
+			color: #b7b7b7
+			}
+
+		.pun #brdheader .box, .pun #brdstats .box, .pun #brdfooter .box {
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+            color: #b7b7b7;
+		}
+
+		.punwrap {
+			padding: 20px !important;
+			background-color: #252a2e;
+			border: 1px solid #000 !important;
+		}
+
+		#postpreview, #viewprofile dd, #adminconsole fieldset th,
+		#adminconsole fieldset td, .pun .blockmenu .box, #adstats dd {
+			background-color:#181b1e;
+		}
+
+		#adminconsole fieldset td {
+			box-shadow: none
+		}
+
+		.pun .forminfo {
+			background-color:#161616;
+		}
+
+		#brdfooter #modcontrols {
+			background-color: #1a1d1f;
+		}
+
+		.pun .box tr.rowodd td, .pun .box td.tcl, .pun .box td.tc2, .pun .box td.tc3, .pun .box td.tcr, .pun .box td[class*="tc"] {
+			background-color:#151619;
+			background-image: linear-gradient(rgba(255, 255, 255, .015), rgba(255, 255, 255, .05));
+		}
+
+		.pun .box tr.rowodd:hover td, .pun .box tr:hover td.tcl, .pun .box tr:hover td.tc2, .pun .box tr:hover td.tc3, .pun .box tr:hover td.tcr,  .pun .box tr:hover td[class*="tc"] {
+			background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .09));
+		}
+
+		.pun .box tr.roweven td, .box tr:nth-child(even), .box tbody tr:nth-child(even) .tcl, .box tbody tr:nth-child(even) .tc2, .box tbody tr:nth-child(even) .tc3, .box tbody tr:nth-child(even) .tcr,  .pun .box tr:nth-child(even) td[class*="tc"] {
+			background-color:#212528;
+			background-image: linear-gradient(rgba(255, 255, 255, .015), rgba(255, 255, 255, .04));
+		}
+
+		.pun .box tr.roweven:hover td, .box tr:nth-child(even):hover, .box tbody tr:nth-child(even):hover .tcl, .box tbody tr:nth-child(even):hover .tc2, .box tbody tr:nth-child(even):hover .tc3, .box tbody tr:nth-child(even):hover .tcr, .pun .box tr:nth-child(even):hover td[class*="tc"] {
+			background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .07));
+		}
+
+		.pun #brdtitle { background-image: linear-gradient(to bottom, #ffffff08, #00000045); }
+
+		.pun #brdmenu {
+			color:#FFF;
+			background-color:#202528;
+			background-image: linear-gradient(rgba(0, 0, 0, .1), rgba(255, 255, 255, .03));
+		}
+
+		.pun #brdwelcome {background-color: #1a1d1f}
+
+		.pun thead tr { background-color:#202528; }
+		.pun thead th { background-color: #0000;}
+
+		.pun legend { color:_forum_color_accent; font-size:11px; }
+
+		.pun .blockmenu li.isactive a, #posterror li strong {
+			color:_forum_color_accent;
+			text-decoration:underline;
+		}
+
+		.pun .usercontent * {
+			background: transparent;
+		}
+
+		.pun .checklist {
+			border-color: #000;
+			}
+
+		.pun .box, .pun .blockmenu .box, .pun #search_google {
+			background-color: #212528;
+		}
+
+		.pun h2 {
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+		}
+
+		.pun .box h2 {
+			background-image: none;
+			border-width: 1px;
+		}
+
+		#adminconsole dd {
+			background: #212427;
+		}
+
+		/* Posts
+		----------------------------------------------------------------*/
+
+		.pun .blockpost .box, .pun .postright, .pun .postfootright, .pun .deletemsg, .pun .postleft, .pun .postfootleft, .pun .blockpost label {
+			background-color:#212528;
+		}
+
+		.pun .postright, .pun .postfootright {
+			border-left-color:#212528;
+		}
+
+		.pun .codebox, .pun .quotebox {
+			background-color:#181b1e;
+		}
+
+		.pun .quotebox cite {
+			color: _forum_color_accent;
+		}
+
+		#punhelp .codebox, #punhelp .quotebox {
+			background-color:#f9f9f9;
+		}
+
+		.pun .blockpost h2 {
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+			padding: 8px 10px;
+		}
+
+		.pun .blockpost h2 span.conr {
+			color:#b7b7b7;
+		}
+
+		.pun hr {
+			color:#626262;
+			margin-bottom:0.25em;
+			background-color:#000;
+			border-width: 0;
+			height: 2px;
+			background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+		}
+
+		.pun .postleft { color:#b7b7b7; }
+
+		/* Borders
+		----------------------------------------------------------------*/
+
+		.pun .box, #adminconsole td, #adminconsole th, #adminconsole dd, .pun .blockpost h2, .pun h2, .pun #search_google, #adminconsole fieldset th { border-color:#000; }
+
+		.pun td { border-color:#626262; }
+
+		#brdfooter #modcontrols { border-color:#000; }
+
+		.pun th, .pun fieldset { border-color:#000; }
+
+		.pun thead tr { 
+			border: solid #000; 
+			border-width: 0px 1px;
+		}
+
+		.pun #adminconsole dd { border-style: solid; border-width: 1px; }
+
+		.pun #adminconsole tr:first-child th,
+		.pun #adminconsole tr:last-child th,
+		.pun #adminconsole tr:first-child td,
+		.pun #adminconsole tr:last-child td{ 
+			border-width: 0;
+		}
+
+		.pun #adminconsole th,
+		.pun #adminconsole td{ 
+			border-style: solid;
+			border-width: 1px 0 1px 0;
+		}
+
+		.pun .quotebox, .pun .codebox, .pun .spoiler_wrap {
+			border-top-color: #000 !important;
+			border-left-color: _forum_color_left_border !important;
+			border-bottom-color: #000 !important;
+			border-right-color: #000 !important;
+		}
+
+		.pun .forminfo, .pun .blockpost label, .pun .deletemsg {
+			border-color: #000;
+		}
+
+		.pun h2 {
+			border-width: 1px 1px 0 1px;
+			border-style: solid;
+		}
+
+		.pun #search_google {
+			border-width: 1px;
+			border-style: solid;
+			padding: 8px;
+		}
+
+		/* Links
+		----------------------------------------------------------------*/
+
+		.pun a, .pun a:link, .pun a:visited { color:_forum_color_accent; text-decoration:none; }
+		.pun a:hover { color:_forum_color_accent_hover; text-decoration:underline; }
+
+		.pun #vf a, .pun .iclosed td.tcl a:link, .pun .iclosed td.tcl a:visited { color:_forum_color_accent_hover; text-decoration:none; }
+		.pun #vf a:hover, .pun .iclosed td.tcl a:hover { color:_forum_color_accent_hover; text-decoration:underline; }
+
+		.pun #vf .inew a, .pun #vf .inew a:link, .pun .inew a:visited { color:_forum_color_accent; text-decoration:none; }
+		.pun #vf .inew a:hover { color:_forum_color_accent; text-decoration:underline; }
+
+		.pun .postmsg a { color:_forum_color_accent; }
+		.pun .postmsg a :hover { color:_forum_color_accent_hover; }
+
+		#brdmenu a { color:_forum_color_accent; }
+		#brdmenu a:hover { color:_forum_color_accent_hover }
+
+		.pun .postmsg .postimg a:hover img, .pun .postmsg .postimg a:active img, .pun .postmsg .postimg a:focus img {
+			border-color: _forum_color_accent;
+		}
+
+		.pun h2 a:link, .pun h2 a:visited,
+		#brdmenu a:link, #brdmenu a:visited {
+		/*	color: #fff*/
+			}
+
+		.pun h2 a:hover, .pun h2 a:active,
+		#brdmenu a:hover, #brdmenu a:active {
+			color: _forum_color_accent_hover
+			}
+
+		.pun .postreport a:link, .pun .postreport a:visited {
+			color: _forum_color_accent
+			}
+
+		.pun .postreport a:hover, .pun .postreport a:active {
+			color: _forum_color_accent_hover
+			}
+
+		.pun .maintenancelink a:link, .pun .maintenancelink a:visited {
+			color: _forum_color_accent
+			}
+
+		.pun .maintenancelink a:hover, .pun .maintenancelink a:active {
+			color: _forum_color_accent_hover
+			}
+
+		.pun .postleft a { color:_forum_color_accent; }
+		.pun .postleft a:hover { color:_forum_color_accent_hover; }
+
+		.pun .tclcon a { font-size:12px; } /* lista tematów */
+
+		.pun .postleft .email a,
+		.pun .postleft .website a,
+		.pun .postleft .pw a { display:inline-block; width:16px; height:16px; margin-right:0.5em; background-position:0 0; background-repeat:no-repeat; }
+
+		/* Status Indicators
+		----------------------------------------------------------------*/
+
+		.pun .icon {
+			border-color: _forum_color_square1_p _forum_color_square2_p _forum_color_square3_p _forum_color_square4_p;
+		}
+
+		.pun .iredirect .icon {
+			border-color: #F1F1F1 #F1F1F1 #F1F1F1 #F1F1F1;
+		}
+
+		.pun .inew .icon {
+			border-color: _forum_color_square1_nr _forum_color_square2_nr _forum_color_square3_nr _forum_color_square4_nr;
+		}
+
+		/* Shadows and animations
+		----------------------------------------------------------------*/
+
+		.pun a,
+		.spoiler_head,
+		.quotebox cite,
+		.pun legend,
+		.pun input[type=submit],
+		.pun input[type=button],
+		.pun input[type=file],
+		.pun .multidelete label,
+		.pun form button {
+			text-shadow: 0 0 _forum_color_accent_shadow_strenght _forum_color_accent_shadow;
+		}
+
+		input[type=text],
+		input[type=password],
+		textarea {
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		input[type=text]:focus,
+		input[type=password]:focus,
+		textarea:focus {
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		input[type=text],
+		input[type=password],
+		textarea {
+			-webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+		}
+
+		#brdtitle, #brdmenu, #brdwelcome, .pun .blocktable h2, .pun td, .pun thead tr, .pun .codebox, .pun .quotebox, .pun .spoiler_wrap, .pun .forminfo, .pun .box fieldset, .pun select, .pun .blockpost h2, .pun h2, .pun hr, .growlstatus, .pun input[type=submit], .pun input[type=button], .pun input[type=file], .pun .multidelete label, .pun form button, .pun input[type=checkbox], .pun input[type=radio], .pun .postlink a, #brdfooter #modcontrols, .pun #adminconsole dd {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+		}
+
+		.punwrap {
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		.pun .postlink a:before {
+			transition: translate 120ms linear, transform 0ms;
+		}
+
+		if _forum_animate_new_topic {
+			.pun .postlink a:hover:before {
+				translate: 6px;
+				transform: rotateX(180deg);
+				transition: 220ms linear;
+				top: 5px;
+			}
+		}
+
+		.pun input[type=checkbox]:before {
+			transform-origin: 18% 90%;
+		}
+
+		.pun input[type=radio]:before {
+			transform-origin: 50%;
+		}
+
+		if _forum_animate_checkbox {
+			.pun input[type=checkbox]:before,
+			.pun input[type=radio]:before {
+				transition: 60ms transform linear;
+			}
+		}
+
+		if _forum_animate_square {
+			.pun .inew .icon {
+				animation: 6s colorchange;
+				animation-delay: 1s;
+				animation-iteration-count: infinite;
+			}
+
+			@keyframes colorchange {
+				0% { border-color: _forum_color_square1_nr _forum_color_square2_nr _forum_color_square3_nr _forum_color_square4_nr; }
+				25% { border-color: _forum_color_square4_nr _forum_color_square1_nr _forum_color_square2_nr _forum_color_square3_nr; }
+				50% { border-color: _forum_color_square3_nr _forum_color_square4_nr _forum_color_square1_nr _forum_color_square2_nr; }
+				75% { border-color: _forum_color_square2_nr _forum_color_square3_nr _forum_color_square4_nr _forum_color_square1_nr; }
+				100% { border-color: _forum_color_square1_nr _forum_color_square2_nr _forum_color_square3_nr _forum_color_square4_nr; }
+			}
+		}
+
+		/* Google search */
+
+		#search_google input[type=text] {
+			filter: none;
+			color: #848484 !important;
+			padding: 5px;
+			border: 1px solid #000 !important;
+			background-color: rgb(13, 15, 17) !important;
+			outline: none !important;
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		#search_google input[type=text]:focus {
+			color: #797979 !important;
+			outline: none;
+			background-color: rgba(0, 0, 0, .7) !important;
+			box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		#search_google #cse-search-results {
+			margin-top: 10px;
+		}
+
+		if _author_footer {
+			.pun #ansifoot:after {
+				content: "| Motyw stworzony przez kostek00";
+				padding-left: 5px;
+			}
+		}
+	}
+}
+
+@-moz-document regexp("(https|http)://animesub.info/wl/(.*?)") {
+	if _wlEnable {
+		body {
+			font-family: verdana,sans-serif;
+			padding: 0px;
+			margin: 0px;
+			line-height: 1.5em;
+			color: #b7b7b7;
+			background-color: _wl_background_color;
+            background-image: url(_wl_background_image) !important;
+            background-size: _wl_background_size;
+            background-repeat: _wl_background_repeat;
+		}
+
+		body, td {
+			font-size: 12px;
+		}
+
+		h1,h2,h3,h4,h5,p {
+			margin: 0;
+		}
+
+		h3 {
+			font-size: 14px;
+		}
+
+		h4 {
+			font-size: 12px;
+		}
+
+		#noResults,
+		td.showTrans,
+		.warnAdd,
+		.link,
+		a:link,
+		a:visited {
+			color: _wl_color_accent;
+		}
+
+		.link,
+		a:hover {
+			color: _wl_color_accent_hover;
+		}
+
+		a:link,
+		a:visited {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.link {
+			cursor: pointer;
+		}
+
+		form {
+			margin: 0;
+		}
+
+		a img {
+			border: none;
+		}
+
+		#msg {
+			text-align: center;
+			font-size: 11px;
+			font-variant: small-caps;
+			padding: 7px 4px;
+			background-color: #1a1c20;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+        
+        if _wl_hide_msg {
+            #msg {
+                display: none !important;
+            }
+        }
+
+		div.error,
+		div.msg {
+			font-size: 14px;
+			font-weight: bold;
+			padding: 1px 0;
+			margin: 0 100px;
+		}
+
+		div.msg {
+			color: #3C3;
+		}
+
+		div.error {
+			color: #D33;
+		}
+
+		.error .key {
+			color: #F55;
+		}
+
+		.error select,
+		.error input {
+			border: 1px solid #E00 !important;
+		}
+
+		.title {
+			margin: 0 0 0.5em;
+			background-color: #1a1c20;
+            border: 1px solid #000;
+            padding: 8px;
+			position: unset;
+		}
+
+		.title span {
+			position:unset;
+			display: block;
+			font-size: 12px;
+            float: right;
+		}
+
+		.title span a {
+			display: block;
+			height: 16px;
+			padding-left: 20px;
+			background-position: 0 50%;
+			background-repeat: no-repeat;
+            
+		}
+
+		.loading {
+			width: 160px;
+			height: 3em;
+			display: none;
+			position:absolute;
+			top: 50%;
+			left: 50%;
+			margin: -6em 0 0 -80px;
+			text-align: center;
+			font-weight: bold;
+			line-height: 3em;
+			color: #000;
+			background: #F1EDCA;
+			border: 2px solid #555;
+		}
+
+		.small {
+			font-size: 10px !important;
+			line-height: 1.2em;
+		}
+
+		.small_info {
+			text-align: center;
+			font-size: 9px;
+			line-height: 16px;
+			white-space: nowrap;
+		}
+
+		.head {
+			height: 62px;
+		}
+
+		#logo {
+			top: 0px;
+			left: 0;
+			position:absolute;
+			width: 100%;
+			height: 62px;
+            border-bottom: 1px solid #000;
+		}
+        
+        if _wl_hide_logo {
+            #logo, .head, .backLeft {
+                display: none !important;
+            }
+        }
+
+		.wrap {
+			max-width: 960px;
+			margin: 10px auto;
+			padding: 20px;
+			background-color: #252a2e;
+			border: 1px solid #000;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, .5), inset 0 1px 1px rgba(255, 255, 255, .2);
+		}
+
+		.clr {
+			clear: both;
+			line-height: 0;
+		}
+
+		.content img {
+			vertical-align: middle;
+		}
+
+		.edit span {
+			cursor: pointer;
+		}
+
+		.edit span,
+		.edit a {
+			display: block;
+			width: 16px;
+			height: 16px;
+			margin: 0px auto;
+			/*background: transparent url(../images/new/sub_edit.png) 0px 0px no-repeat;*/
+		}
+
+		.del a {
+			display: block;
+			width: 16px;
+			height: 16px;
+			margin: 0px auto;
+			/*background: transparent url(../images/new/del.png) 0px 0px no-repeat;*/
+		}
+
+		/* menus */
+
+		.menu {
+			float:left;
+			font-size: 8px;
+			color: #b7b7b7;
+            margin-bottom: 10px;
+		}
+
+		.menu a {
+			font-size: 11px;
+		}
+
+		#menuMod {
+			clear: both;
+			margin-bottom: 10px;
+		}
+
+		#menuLogin {
+			clear: both;
+			float: right;
+			color: #b7b7b7;
+		}
+
+		#menuLogin a {
+			font-size: 11px;
+		}
+
+		#menuLogin form {
+			display: inline;
+		}
+
+		#tabs {
+			clear: both;
+			float:left;
+			position: relative;
+			bottom: -1px;
+			list-style-type: none;
+			padding: 0;
+			margin: 16px 0 0 0.5em;
+		}
+
+		#tabs li {
+			float:left;
+			padding: 3px 10px;
+			margin-right: 8px;
+			border: 1px solid #000;
+			background: #292f33;
+		}
+
+        #tabs li:hover {
+			background: #292f33;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .09));
+        }
+
+		#tabs a {
+			font-weight: bold;
+            text-decoration: none;
+		}
+
+		#tabs li.active {
+			background: #181b1e;
+			border-bottom-color: #181b1e;
+		}
+
+        #tabs li.active:hover {
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .09));
+		}
+
+		#tabs li.active a {
+			font-weight: bold;
+			color: _wl_color_accent_hover;
+		}
+
+		#tabWrap {
+			clear: both;
+			padding: 10px 8px;
+			margin-bottom: 12px;
+			border: 1px solid #000;
+            background-color: #181b1e;
+		}
+
+		.tabLinks {
+			font-size: 8px;
+			margin-bottom: 0;
+			color: #b7b7b7;
+		}
+
+		.tabLinks a {
+			font-size: 10px;
+			font-weight: bold;
+			margin: 0 0.5em;
+		}
+
+		.tabLinks a:first-child {
+			margin-left: 0;
+		}
+
+		#pagination a {
+			display: inline-block;
+			filter: none;
+			cursor: pointer;
+			color: _wl_color_accent;
+			font-size: 11px;
+			font-weight: bold;
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 2px 4px;
+            text-align: center;
+            min-width: 14px;
+            min-height: 14px;
+		}
+
+		#pagination .active {
+			cursor: pointer;
+			color: #fff;
+		}
+        
+        #pagination a:hover {
+			filter: none;
+			color: _wl_color_accent_hover;
+            text-decoration: none;
+			background-color: #212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		/* formularze, widoki */
+
+		.descHead {
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+
+		a.sorted {
+			text-decoration: underline;
+		}
+
+		.list {
+			width: 100%;
+			margin: 10px 0;
+			border: 0;
+		}
+
+		.short {
+			width:auto;
+		}
+
+		.list tr td:first-child {
+			font-size: 10px;
+		}
+
+		.list .level {
+			font-size: 9px;
+			padding: 2px 6px;
+		}
+        
+        .list tr {
+            background-image: linear-gradient(to bottom, #212427, #1a1b1f);
+        }
+
+        table.list, .list td {
+			border: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+		.list th {
+			font-size: 9px;
+			padding: 3px 5px 4px;
+			color: #888;
+		}
+
+		.list td {
+			padding: 6px 6px;
+		}
+        
+        .list td:first-of-type {
+            text-align: center;
+        }
+        
+        if _wl_hide_eng_title {
+            .list td:nth-of-type(3),
+            .list > tbody > tr > th:nth-of-type(3) {
+                display: none !important;
+            }
+        }
+        
+        if _wl_hide_alt_title {
+            .list td:nth-of-type(4),
+            .list > tbody > tr > th:nth-of-type(4) {
+                display: none !important;
+            }
+        }
+
+		.list tr:hover td {
+			background-color: #F1EDCA;
+		}
+			
+        .list .even td {
+            background-image: linear-gradient(rgba(255, 255, 255, .015), rgba(255, 255, 255, .05));
+            background-color: #151619;
+        }
+        
+        .list .even:hover td {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .09));
+            background-color: #151619;
+        }
+
+		.list .odd td {
+			background-image: linear-gradient(rgba(255, 255, 255, .015), rgba(255, 255, 255, .04));
+            background-color: #212528;
+		}
+
+		.list .odd:hover td {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .07));
+            background-color: #212528;
+		}
+
+		.list > tbody > tr > th {
+			border-bottom: 0px solid #000;
+		}
+
+		.short td {
+			padding: 3px 10px 3px 2px;
+		}
+
+		.inList {
+			margin-left: 30px;
+			border: 1px solid #CCC;
+		}
+
+		.inList th {
+			border-bottom: 1px solid #CCC;
+		}
+
+		.list .small a {
+			font-size: 9px;
+		}
+        
+		input[type=text],
+		input[type=password],
+		textarea {
+			filter: none;
+			color: #848484;
+			padding: 5px;
+			outline: none;
+			border: 1px solid #000;
+			background: #13161a;
+            box-shadow: 0 1px rgba(255, 255, 255, .1), inset 0 1px 2px rgba(0, 0, 0, .6);
+		}
+
+		input[type=text]:focus,
+		input[type=password]:focus,
+		textarea:focus,
+        input[readonly] {
+			color: #797979;
+			outline: none;
+			background: rgba(0, 0, 0, .7);
+		}
+
+		input[type=submit],
+		input[type=button],
+		input[type=file],
+		form button {
+			filter: none;
+			cursor: pointer;
+			color: _wl_color_accent;
+			font-size: 11px;
+			font-weight: bold;
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 6px 18px;
+		}
+
+		input[type=submit]:hover, 
+		input[type=button]:hover,
+		input[type=file]:hover,
+		form button:hover {
+			filter: none;
+			color: _wl_color_accent_hover;
+			background-color: #212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		input[type=checkbox],
+		input[type=radio] {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			-o-appearance: none;
+			display: inline-block;
+			position: relative;
+			cursor: pointer;
+			border: 1px solid #000;
+			background-color: #212427;
+			vertical-align: text-bottom;
+		}
+
+		input[type=checkbox] {
+			width: 17px !important;
+			height: 17px !important;
+		}
+
+		input[type=radio] {
+			border-radius: 50%;
+			width: 19px !important;
+			height: 19px !important;
+		}
+
+		input[type=checkbox]:hover, input[type=radio]:hover {
+			background-color:#212427;
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		input[type=checkbox]:before {
+			content: "\2713";
+			color: _wl_checkbox_color;
+			font-weight: bold;
+			font-size: 18px;
+			line-height: 10px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 2px;
+			right: 0;
+			text-shadow: 0 0 _wl_checkbox_shadow_strenght _wl_checkbox_shadow;
+		}
+
+		input[type=radio]:before {
+			content: "";
+			width: 9px;
+			height: 9px;
+			position: absolute;
+			top: 4px;
+			bottom: 0;
+			left: 4px;
+			right: 0;
+			border-radius: 50%;
+			background-color: _wl_radio_color;
+			box-shadow: 0 0 _wl_radio_shadow_strenght _wl_radio_shadow;
+		}
+
+		input[type=checkbox]:before,
+		input[type=radio]:before {
+			transform: scale(0);
+		}
+
+		input[type=checkbox]:checked:before,
+		input[type=radio]:checked:before {
+			transform: scale(1);
+		}
+
+		input[type=checkbox]:focus,
+		input[type=radio]:focus {
+			outline: none;
+		}
+
+		input[type=checkbox]:disabled,
+		input[type=checkbox]:disabled:hover,
+		input[type=radio]:disabled,
+		input[type=radio]:disabled:hover,
+		select:disabled,
+		select:disabled:hover {
+			cursor: not-allowed;
+			background-color: #33383b;
+			border-color: #000;
+			background-image: none;
+		}
+
+		select {
+			background-color: #212427;
+			border: #000 1px solid;
+			padding: 5px 9px;
+			outline: none;
+			position: relative;
+			min-width: 150px;
+			cursor: pointer;
+		}
+
+		select:hover {
+			background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
+		}
+
+		optgroup[label] {
+			color: #b7b7b7;
+			font-style: normal;
+		}
+
+		select, option {
+			color: #b7b7b7;
+		}
+
+		optgroup[label], option {
+			background-color: #212427;
+		}
+
+		optgroup[label]:checked, option:hover {
+			background-color: #212427;
+		}
+
+        /* nieznane */
+		input[readonly] {
+			background-color: #2d3235 !important;
+			border-color: #000;
+            color: #b7b7b7;
+		}
+
+		input[name=search] {
+			/*background: url(../images/new/search.png) 1px 1px no-repeat;*/
+            width: 90%;
+            height: 22px;
+			padding: 1px 1px 1px 6px;
+		}
+
+        #tabWrap input[type=text] {
+            background-color: #0d0f11 !important;
+        }
+        
+        #tabWrap input[type=text]:focus {
+            background-color: rgba(0, 0, 0, 0.7) !important;
+        }
+
+		ul {
+			list-style-type: square;
+			padding: 0 0 0 25px;
+			margin: 0 0 1em;
+		}
+
+		#searchForm {
+			clear: both;
+            text-align: center;
+		}
+
+		ul.form {
+			float:left;
+			clear: both;
+			padding: 0;
+		}
+
+		ul.form li {
+			list-style-type: none;
+			clear:left;
+			float:left;
+			width: 100%;
+			margin-bottom: 0.5em;
+		}
+
+		.form label {
+			float:left;
+			width: 150px;
+		}
+
+		.form input,
+		.form select {
+			float:left;
+		}
+
+		.form li > div {
+			float:left;
+		}
+
+		.form li > div input {
+			clear: both;
+		}
+
+		.submit {
+			margin-top: 20px;
+		}
+
+		.modSubmit,
+		.submit {
+			font-weight: bold;
+			font-variant: small-caps;
+			padding: 2px 5px;
+			cursor: pointer;
+			color: #12F;
+			background: #EEE;
+		}
+
+		.modSubmit {
+			font-size: 10px;
+			padding: 1px 4px;
+			margin: 1px;
+		}
+
+		.modSubmit:hover,
+		.submit:hover {
+			background-color: #FFF;
+		}
+
+		.form #typ {
+			text-transform: capitalize;
+		}
+
+		.view {
+			width: 100%;
+		}
+
+		.view > tbody > tr > td:first-child {
+			width: 50%;
+		}
+
+		.view td {
+			vertical-align: top;
+			padding-left: 20px;
+		}
+
+		#wishList .vote .icon {
+			position: relative;
+			width: 16px;
+			height: 16px;
+			cursor: pointer;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+		}
+
+		#wishList .vote .icon div {
+			position:absolute;
+			top: -2em;
+			left: 16px;
+			white-space: nowrap;
+			padding: 0 3px 1px;
+			border-width: 1px;
+			border-style: solid;
+			color: #FFF;
+			border-color: #DDD;
+			background-color: #FFF;
+		}
+
+		.form input[type="text"],
+		.form textarea,
+		.form input[type="password"] {
+			width: 200px;
+		}
+
+		.form input[maxlength="8"] {
+			width: 80px;
+		}
+
+		#userEdit textarea {
+			width: 200px;
+		}
+
+		#users td {
+			padding-right: 8px;
+		}
+
+		.warnAdd {
+			cursor: pointer;
+		}
+
+		.warnAdd:hover {
+			text-decoration: underline;
+		}
+
+		#projectAdd {
+			margin-top: 10px;
+		}
+
+		#projectAdd #eps input {
+			width: 50px;
+		}
+
+		#noResults,
+		.results tr:hover td {
+			cursor: pointer;
+		}
+
+		th.showTrans {
+			width: 30px;
+		}
+
+		td.showTrans {
+			cursor: pointer;
+			font-size: 9px;
+			text-transform:lowercase;
+		}
+
+		.icon {
+			width: 16px;
+			height: 16px;
+			display: inline-block;
+			margin: 0 2px;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+		}
+
+		#foot {
+			text-align: center;
+			margin: 12px 0 0 0;
+			background-color: #1a1c20;
+            border: 1px solid #000;
+            padding: 8px 6px;
+		}
+
+		#projectsList > tbody > tr > td {
+			border-bottom: 1px solid #CCC;
+		}
+
+		/* temp */
+		#help img {
+			vertical-align: middle;
+		}
+        
+        .list tr td,
+        .list tbody tr,
+        .title,
+        #foot,
+        #tabs li,
+        #tabWrap,
+        #msg {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+        }
+
+		a,
+		input[type=submit],
+		input[type=button],
+		input[type=file] {
+			text-shadow: 0 0 _wl_color_accent_shadow_strenght _wl_color_accent_shadow;
+		}
+
+		input[type=submit],
+		input[type=button],
+		input[type=file],
+        select, 
+		input[type=checkbox],
+		input[type=radio],
+        #pagination a {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
+        }
+
+		input[type=text],
+		input[type=password],
+		textarea {
+			-webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			-ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+			transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out, background 0.25s ease-in-out;
+		}
+
+
+		if _wl_animate_checkbox {
+			input[type=checkbox]:before,
+			input[type=radio]:before {
+				transition: 60ms transform linear;
+			}
+		}
+
+		if _author_footer {
+			#foot:after {
+				content: "| Motyw stworzony przez kostek00";
+				padding-left: 5px;
+                font-size: 10px;
+			}
+		}
+        
+        if _wl_convert_images {
+            .title span a,
+            .edit span,
+		    .edit a,
+            .del a,
+            a.forum, 
+            a.anidb, 
+            .vote .icon,
+            .vote .icon.undo {
+                background-image: none !important;
+                text-decoration: none;
+            }
+
+            .title span a:before {
+                content: "\26A0";
+                font-size: 20px;
+                font-weight: normal;
+                padding-right: 6px;
+                color: rgb(255, 255, 0);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(255, 255, 0);
+                vertical-align: sub;
+            }
+
+            .title span a:hover:before {
+                color: rgb(255, 255, 199);
+            }
+
+            .edit span:before,
+            .edit a:before {
+                content: "\270E";
+                font-size: 18px;
+                color: rgb(0, 132, 255);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(0, 132, 255);
+            }
+
+            .edit span:hover:before,
+            .edit a:hover:before {
+                color: rgb(128, 194, 255);
+            }
+
+            .del a:before {
+                content: "\2716";
+                font-size: 18px;
+                color: rgb(255, 0, 0);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(255, 0, 0);
+            }
+
+            .del a:hover:before {
+                color: rgb(255, 130, 130);
+            }
+        
+            a.forum:before {
+                content: "\1F4AC";
+                font-size: 18px;
+                color: rgb(0, 183, 255);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(101, 81, 255);
+            }
+        
+            a.forum:hover:before {
+                color: rgb(155, 227, 255);
+            }
+            
+            a.anidb:before {
+                content: "\1F4DA";
+                font-size: 18px;
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(101, 81, 255);
+            }
+
+            .vote .icon:before {
+                content: "\2295";
+                font-size: 22px;
+                line-height: 18px;
+                color: rgb(0, 255, 8);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(0, 255, 8);
+            }
+
+            .vote .icon:hover:before {
+                color: rgb(199, 255, 200);
+            }
+
+            .vote .icon.undo:before {
+                content: "\2296";
+                font-size: 22px;
+                line-height: 18px;
+                color: rgb(255, 0, 0);
+                text-shadow: 0 0 _wl_color_accent_shadow_strenght rgb(255, 0, 0);
+            }
+
+            .vote .icon.undo:hover:before {
+                color: rgb(255, 130, 130);
+            }
+		}
+	}
+}
