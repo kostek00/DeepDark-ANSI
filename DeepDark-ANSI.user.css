@@ -1,9 +1,8 @@
 /* ==UserStyle==
 @name           DeepDark ANSI
-@namespace      github.com/kostek00/DeepDark-ANSI
-@homepage	https://github.com/kostek00/DeepDark-ANSI
+@namespace      https://github.com/kostek00/DeepDark-ANSI
 @updateURL      https://github.com/kostek00/DeepDark-ANSI/DeepDark-ANSI.user.css
-@version        1.0.0
+@version        1.0.1
 @description    Ciemny motyw do strony animesub.info.
 @author         kostek00
 @license        MIT
@@ -104,13 +103,9 @@
 				display: none !important;
 			}
 		}
-        
-        body center table.TabMain tbody tr td table tbody tr td center {
-            font-size: 20px;
-        }
 
         if _main_convert_alphabet {
-            body center table.TabMain tbody tr td table tbody tr td center > a {
+            body center table.TabMain tbody tr td table tbody tr td center:first-of-type > a {
                 filter: none;
                 cursor: pointer;
                 background-color: #212427;
@@ -121,11 +116,11 @@
                 width: 64px;
                 height: 64px;
                 display: inline-block;
-                margin: 1.5px -2px;
+                margin: 1.5px -0.5px;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(255, 255, 255, .15);
             }
 
-            body center table.TabMain tbody tr td table tbody tr td center > a:hover {
+            body center table.TabMain tbody tr td table tbody tr td center:first-of-type > a:hover {
                 filter: none;
                 background-color: #212427;
                 background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, .07));
