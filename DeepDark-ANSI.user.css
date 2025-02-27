@@ -31,7 +31,9 @@
 @var color _main_radio_color "‣‣ Kolor zaznaczenia pola pojedynczego wyboru" #8DA8FF
 @var color _main_radio_shadow "‣‣ Kolor cienia pola pojedynczego wyboru" #8DA8FF
 @var number _main_radio_shadow_strenght "‣‣ Siła rozmycia cienia pola pojedynczego wyboru" [3, 'px']
-@var color _main_color_index "‣‣ Kolor indeksu napisów" #FFF000
+@var color _main_color_index "‣‣ Kolor indeksu napisów" #FFFFFF
+@var color _main_color_index_shadow "‣‣ Kolor cienia indeksu napisów" rgba(255, 255, 255, 0.5)
+@var number _main_color_index_shadow_strenght "‣‣ Siła rozmycia cienia indeksu napisów" [5, 'px']
 @var checkbox _forumEnable "Motyw forum:" 1
 @var color _forum_background_color "‣‣ Kolor tła" #101315
 @var text _forum_background_image "‣‣ Obraz tła" "none"
@@ -247,7 +249,8 @@
 		}
 
 		body center table.TabMain tbody tr td table tbody tr td table tbody tr td div.daySubtitles a.MBNN sup.latest-subtitles-index-update {
-			color: _main_color_index;
+			color: _main_color_index;;
+			text-shadow: 0 0 _main_color_index_shadow_strenght _main_color_index_shadow;
 			vertical-align: top;
 			position: relative;
 			top: -3px;
