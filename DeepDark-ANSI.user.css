@@ -2,7 +2,7 @@
 @name           DeepDark ANSI
 @namespace      https://github.com/kostek00/DeepDark-ANSI
 @updateURL      https://github.com/kostek00/DeepDark-ANSI/DeepDark-ANSI.user.css
-@version        1.0.2
+@version        1.0.3
 @description    Ciemny motyw do strony animesub.info.
 @author         kostek00
 @license        MIT
@@ -78,7 +78,7 @@
                                     "vertical:Pionowo": "repeat-y" }
 @var checkbox _wl_hide_logo "‣‣ Ukryj baner" 0
 @var checkbox _wl_convert_images "‣‣ Zmień ikony obrazkowe na znaki" 0
-@var checkbox _wl_hide_msg "‣‣ Ukryj nieporzebne komunikaty" 0
+@var checkbox _wl_hide_msg "‣‣ Ukryj niepotrzebne komunikaty" 0
 @var checkbox _wl_hide_eng_title "‣‣ Ukryj kolumnę angielskiego tytułu" 0
 @var checkbox _wl_hide_alt_title "‣‣ Ukryj kolumnę alternatywnego tytułu" 0
 @var checkbox _wl_animate_checkbox "‣‣ Animacje pól wyboru" 1
