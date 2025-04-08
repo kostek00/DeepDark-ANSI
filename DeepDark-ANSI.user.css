@@ -2808,7 +2808,7 @@
 		.pun #vf .inew a:hover { color:_forum_color_accent; text-decoration:underline; }
 
 		.pun .postmsg a { color:_forum_color_accent; }
-		.pun .postmsg a :hover { color:_forum_color_accent_hover; }
+		.pun .postmsg a:hover { color:_forum_color_accent_hover; }
 
 		#brdmenu a { color:_forum_color_accent; }
 		#brdmenu a:hover { color:_forum_color_accent_hover }
